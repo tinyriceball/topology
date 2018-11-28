@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#define MAX 500
+#define MAX
 class List
 {
   public:
@@ -8,8 +8,8 @@ class List
     ~List();
     int Length();
     void Insert();
-    void Delete();
-    int Get();
+    void Delete(List,int,int *);
+    int Get(List,int,int *);
 
   private:
     int size;
@@ -20,7 +20,8 @@ List::List()
     size = 0;
 };
 List::~List(){};
-int List::Length()
+int List::Length(List L)
 {
-    return size;
+    return L.size;
 }
+
