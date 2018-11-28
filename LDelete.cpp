@@ -12,13 +12,15 @@ List::Delete(List L,int i,int * x) {
 	if (i<0 || i>Length(L) - 1) {
 		cout << "删除位置错误，操作失败" << endl;
 		return 0;
-	}else{
+	
+	}else{//删除
 		*x = L.list[i];
 		for (int j = i + 1; j <= Length(L) - 1; j++) {
-			L->list[j - 1] = L->list[j];
-			(L->size)--;
+			L->list[j - 1] = L->list[j];//值的覆盖		
 		}
-	
+
+		(L->size)--;//表长度减一
+		return 1;
 
 	}
 }
