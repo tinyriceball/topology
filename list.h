@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#define MAX
+#define MAX 100
 class List
 {
   public:
