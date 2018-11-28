@@ -10,7 +10,7 @@ List::Get(List L, int i, int *x) {
 		return 0;
 	}
 	else {
-		*x = L.list[i];
+		*x = L.list[i];//´æÊı¾İ
 		return 1;
 	}
 }
