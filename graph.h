@@ -4,22 +4,22 @@
 using namespace std;
 #define Vertex 100
 #define infinite 10000000
-class Edge //边
-{
-public:
-  Edge();
-  ~Edge();
-  int Weight; //权重
-  int Row;    //行
-  int Line;   //列
-};
-Edge::Edge()
-{
-  Weight = 0;
-  Row = 0;
-  Line = 0;
-};
-Edge::~Edge(){};
+// class Edge //边
+// {
+// public:
+//   Edge();
+//   ~Edge();
+//   int Weight; //权重
+//   int Row;    //行
+//   int Line;   //列
+// };
+// Edge::Edge()
+// {
+//   Weight = 0;
+//   Row = 0;
+//   Line = 0;
+// };
+// Edge::~Edge(){};
 class Graph
 {
 public:
