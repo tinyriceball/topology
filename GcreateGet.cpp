@@ -1,39 +1,28 @@
 #include "GcreateGet.h"
-int Graph::Get_First(Graph *g, int a){
-    //     if (g)
-    //     {
-    //         for (int i = 0; i < Vertex; i++)
-    //         {
-    //             if (g->Save_v[a][i] != 0 && g->Save_v[a][i] != infinite)
-    //             {
-    //                 return i;
-    //             }
-    //         }
-    //         return -1;
-    //     }
-    //     else
-    //     {
-    //         cout << "The graph is empty" << endl;
-    //         return -1;
-    //     }
+int Graph::Get_First(int a)
+{
+
+    for (int i = 0; i < Vertex; i++)
+    {
+        if (Save_v[a][i] != 0 && Save_v[a][i] != infinite)
+        {
+            return i;
+        }
+    }
+    return -1;
 };
-int Graph::Get_Next(Graph *g, int a){
-    // if (g)
-    // {
+int Graph::Get_Next(int a){
+
     //     for (int i = a; i < Vertex; i++)
     //     {
-    //         if (g->Save_v[a][i] != 0 && g->Save_v[a][i] != infinite)
+    //         if (Save_v[a][i] != 0 && Save_v[a][i] != infinite)
     //         {
     //             return i;
     //         }
     //     }
     //     return -1;
     // }
-    // else
-    // {
-    //     cout << "The graph is empty" << endl;
-    //     return -1;
-    // }
+
 };
 void Graph::Create()
 {
@@ -60,7 +49,7 @@ void Graph::Create()
     }
     cout << "the graph was create successfully" << endl;
 };
-int Graph::Print(int i, int j)
+int Graph::Get(int i, int j)
 {
     return Save_v[i][j];
 };
