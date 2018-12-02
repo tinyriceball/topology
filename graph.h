@@ -1,25 +1,10 @@
 #include <iostream>
 #include <fstream>
-#include "list.h"
+//#include "list.h"
 using namespace std;
 #define Vertex 100
 #define infinite 10000000
-// class Edge //边
-// {
-// public:
-//   Edge();
-//   ~Edge();
-//   int Weight; //权重
-//   int Row;    //行
-//   int Line;   //列
-// };
-// Edge::Edge()
-// {
-//   Weight = 0;
-//   Row = 0;
-//   Line = 0;
-// };
-// Edge::~Edge(){};
+#define vertexNum 9
 class Graph
 {
 public:
@@ -36,7 +21,7 @@ public:
   int Get(int i, int j);//获得矩阵中元素的信息
 
   private:
-  List route;
+ // List route;
   int Edge_Num;
   int Save_v[Vertex][Vertex];
 };
