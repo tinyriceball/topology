@@ -14,9 +14,9 @@ void Graph::Dijkstra(int v)
     {
         dist[i] = Save_v[v][i];
         if (dist[i] != infinite)
-            path[i] = v + i;
+            path[i] = i;
         else
-            path[i] = 100;
+            path[i] = infinite;
     }
     int s[vertexNum];
     s[0] = v;
@@ -41,7 +41,7 @@ void Graph::Dijkstra(int v)
         }
         else
         {
-            cout << "|  " << path[k] - 1 << ".x.x.x   |      " << dist[k] << "  |" << endl; // 距离
+            cout << "|  " << path[k] << ".x.x.x   |      " << dist[k] << "  |" << endl; // 距离
             cout << "---------------------------------------------------" << endl;
         }
         s[num++] = k;
