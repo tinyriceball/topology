@@ -10,7 +10,7 @@ public:
   List *pre;
   List *next;
   void Refresh(int des, int dist, int next);
-  void Delete(List *k);
+  void LDelete(List *k);
   void Instert();
   List * Getlist(List *h, int k);
   List();
