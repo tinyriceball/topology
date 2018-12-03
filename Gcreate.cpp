@@ -20,6 +20,7 @@ void Graph::Create()
         }
     }
     cout << "the graph was create successfully" << endl;
+    fin.close();
 };
 int Graph::Get(int i, int j)
 {
