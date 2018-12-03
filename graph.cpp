@@ -16,6 +16,7 @@ Graph::Graph()
         }
     }
     Edge_Num = 0;
+    head = new List;
 };
 
 Graph::~Graph(){};
