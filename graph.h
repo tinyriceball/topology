@@ -10,7 +10,8 @@ class Graph
 public:
   Graph();
   ~Graph();
-  void Create();
+  void Create_Graph();
+  void Create_List();
   void Dijkstra(int v, List *node); //最短路径
   void List_Refresh(string list);   //更新路由表
   void Insert_vertex(Graph *G, int k); //插入节点
@@ -19,6 +20,7 @@ public:
   void Delete_edge();   //删除边
   void Dijkstra(int v);      //最短路径
   int Get(int i, int j);//获得矩阵中元素的信息
+  
 
 private:
   List *head;

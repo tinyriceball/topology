@@ -1,5 +1,5 @@
 #include "Gcreate.h"
-void Graph::Create()
+void Graph::Create_Graph()
 {
     ifstream fin;
     fin.open("data.txt");
