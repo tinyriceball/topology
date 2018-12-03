@@ -36,8 +36,17 @@ int main()
                      << "|距离|" << endl; //跳数 距离
                 cout << "---------------------------------------------------" << endl;
                 List *temp = NULL;
-
-                //graph1.-Print(i);
+                temp = graph1.head;
+                int n = graph1.Vertex_num();
+                int j = 0;
+                // while (j < n && temp->Name != i)
+                // {                    
+                //         temp = temp->next;
+                //         cout << "i=" << i << endl;
+                //         j++;
+                    
+                // }
+                temp->Print(i);
                 Option = 0;
                 break;
             }
@@ -54,7 +63,7 @@ int main()
                     {
                     case '1':
                     {
-                        // graph1.Insert_edge();
+                        //graph1.Insert_edge();
                         break;
                     }
                     case '2':
@@ -99,7 +108,7 @@ int main()
                         cout << "请输入要删除的结点号" << endl;
                         int Dvertex;
                         cin >> Dvertex;
-                       // graph1.Delete_vertex(Dvertex);
+                        // graph1.Delete_vertex(Dvertex);
                         break;
                     }
                     case 'q':
