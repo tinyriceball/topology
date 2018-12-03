@@ -11,8 +11,8 @@ public:
   Graph();
   ~Graph();
   void Create();
-  void Insert_vertex(); //插入节点
-  void Delete_vertex(); //删除节点
+  void Insert_vertex(Graph *G, int k); //插入节点
+  void Delete_vertex(Graph *G, int k); //删除节点
   void Insert_edge();   //插入边
   void Delete_edge();   //删除边
   int Get_First(int a); //获取第一个节点
