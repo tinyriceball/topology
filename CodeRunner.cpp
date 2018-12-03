@@ -81,12 +81,18 @@ int main()
                     {
                     case '1':
                     {
-                        //graph1.Insert_vertex();
+						cout << "请输入要插入的结点号" << endl;
+						int Ivertex;
+						cin >> Ivertex;
+                        graph1.Insert_vertex(G,Ivertex);
                         break;
                     }
                     case '2':
                     {
-                        //graph1.Delete_vertex();
+						cout << "请输入要删除的结点号" << endl;
+						int Dvertex;
+						cin >> Ivertex;
+                        graph1.Delete_vertex(G,Dvertex);
                         break;
                     }
                     case 'q':
