@@ -15,8 +15,31 @@ Graph::Graph()
             }
         }
     }
-    Edge_Num = 0;
     head = new List;
+    vertex = 0;
 };
 
 Graph::~Graph(){};
+bool Graph::Vertex_Verify(int i)
+{
+    for (int a = 1; a <= Vertex; a++)
+    {
+        if (Save_v[i][a] != infinite)
+        {
+            return true;
+        }
+        return false;
+    }
+};
+int Graph::Vertex_num()
+{
+    int num=0;
+    for (int a = 1; a <= Vertex; a++)
+    {
+        if (Vertex_Verify(a))
+        {
+            num++;
+        }
+    }
+    return num;
+};

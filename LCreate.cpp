@@ -4,6 +4,7 @@ void Graph::Create_List()
     List *temp = NULL;
     List *cur = NULL;
     cur = head;
+    int v_num = Vertex_num();
     int list;
     do
     {
@@ -11,7 +12,10 @@ void Graph::Create_List()
         temp = cur;
         cur = cur->next;
         cur->pre = temp;
-        Dijkstra(list, temp); //给当前路由表赋值
-
-    } while (1);
+        if (Vertex_Verify(list))
+        {
+            Dijkstra(list, temp);
+            v_num--;
+        } //给当前路由表赋值
+    } while (v_num);
 };

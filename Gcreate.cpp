@@ -10,9 +10,8 @@ void Graph::Create_Graph()
     }
     else
     {
-        for (int a = 0; a < 16; a++)
+        while (fin >> i)
         {
-            fin >> i;
             fin >> j;
             fin >> w;
             Save_v[i][j] = w;
