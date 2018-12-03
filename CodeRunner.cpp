@@ -94,7 +94,7 @@ int main()
                         cout << "请输入要插入的结点号" << endl;
                         int Ivertex;
                         cin >> Ivertex;
-                        //graph1.Insert_vertex(Ivertex);
+                        graph1.Insert_vertex(Ivertex);
                         break;
                     }
                     case '2':
@@ -102,7 +102,7 @@ int main()
                         cout << "请输入要删除的结点号" << endl;
                         int Dvertex;
                         cin >> Dvertex;
-                        // graph1.Delete_vertex(Dvertex);
+                        graph1.Delete_vertex(Dvertex);
                         break;
                     }
                     case 'q':

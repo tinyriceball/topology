@@ -1,12 +1,12 @@
 #include "GDijkstra.h"
-void Graph::Dijkstra(int v, List *temp)
+void Graph::Dijkstra(int router, List *temp)
 {
     int dist[Vertex];
     int i, des;
     int path[Vertex];
     for (i = 0; i < Vertex; i++)
     {
-        dist[i] = Save_v[v][i];
+        dist[i] = Save_v[router][i];
         if (dist[i] != infinite)
         {
             path[i] = i;
@@ -17,8 +17,8 @@ void Graph::Dijkstra(int v, List *temp)
         }
     }
     int s[Vertex];
-    s[0] = v;
-    dist[v] = 0;
+    s[0] = router;
+    dist[router] = 0;
     int num = 1;
     while (num < Vertex)
     {
@@ -31,13 +31,13 @@ void Graph::Dijkstra(int v, List *temp)
                 min = dist[i];
             }
         }
-        if (path[des] == des)
+        if (path[des] == des)//当下一跳等于目的地
         {
-            temp->Refresh(des, dist[des], -1);
+            temp->Refresh(des, dist[des], -1);//将-1赋给下一跳
         }
         else
         {
-                temp->Refresh(des, dist[des], path[des]);
+            temp->Refresh(des, dist[des], path[des]);
         }
         s[num++] = des;
         for (i = 0; i < Vertex; i++)

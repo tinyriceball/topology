@@ -4,20 +4,19 @@ void Graph::Create_List()
     List *temp = NULL;
     List *cur = NULL;
     cur = head;
-    int v_num = Vertex_num();
-    int list = 1;
+    int v_num = Vertex_num();//未操作节点数
+    int router = 1;
     do
     {
         cur->next = new List;
         temp = cur;
         cur = cur->next;
-        cur->pre = temp;
-        bool judge = Vertex_Verify(list);
-        if (judge)
+        cur->pre = temp;//链表前后节点连接操作
+        if (Vertex_Verify(router))
         {
-            Dijkstra(list, cur);
-            v_num--;
+            Dijkstra(router, cur);//调用最短路径算法
+            v_num--;//未操作节点数-1
         } //给当前路由表赋值
-        list++;
+        router++;
     } while (v_num);
 };

@@ -10,7 +10,7 @@ void Graph::Create_Graph()
     }
     else
     {
-        while (fin >> i)
+        while (fin >> i)//构建图矩阵
         {
             fin >> j;
             fin >> w;
