@@ -1,12 +1,12 @@
 #include "Gvertex.h"
 
 
-//ÏòÍ¼GÖĞ²åÈë½áµãk
-void Graph::Insert_vertex(Graph *G, int k){
-	//¸Ä±ä±ßµÄÁÚ½Ó¾ØÕó
+//ï¿½ï¿½Í¼Gï¿½Ğ²ï¿½ï¿½ï¿½ï¿½ï¿½k
+void Graph::Insert_vertex(int k){
+	//ï¿½Ä±ï¿½ßµï¿½ï¿½Ú½Ó¾ï¿½ï¿½ï¿½
 	Save_v[k][k] = 0;
 
-	//ÔÚÎÄ¼şÖĞĞ´Èëk k 0
+	//ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½k k 0
 	fstream fout;
 	fout.open("data.txt", ios::out | ios::app);
 	fout<< k << " " << k << " " << 0 << endl;
@@ -17,8 +17,8 @@ void Graph::Insert_vertex(Graph *G, int k){
 
 
 
-//ÔÚÍ¼GÖĞÉ¾³ı½áµãk
-void Graph::Delete_vertex(Graph *G,int k) {
+//ï¿½ï¿½Í¼Gï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½k
+void Graph::Delete_vertex(int k) {
 	fstream fin;
 	fin.open("data.txt");
 	int i[Vertex], j[Vertex],w[Vertex];
@@ -33,16 +33,16 @@ void Graph::Delete_vertex(Graph *G,int k) {
 	}
 	cout << "The vertex could not be found." << endl;
 	return;
-//É¾³ı
+//É¾ï¿½ï¿½
 dele:
-	//ÔÚÎÄ¼şÖĞÉ¾³ı
+	//ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½É¾ï¿½ï¿½
 	ofstream fout("data.txt");
 	for (int a = 0; a < counter; ++a) {
 		if (i[a] == k) continue;
 		fout << i[a] << " " << j[a] << " " << w[a] << endl;
 	}
 	fout.close();
-	//¸ü¸Ä±ßµÄÁÚ½Ó¾ØÕó
+	//ï¿½ï¿½ï¿½Ä±ßµï¿½ï¿½Ú½Ó¾ï¿½ï¿½ï¿½
 	for (int a = 0; a < Vertex; ++a) {
 		Save_v[k][a] = infinite;
 		Save_v[a][k] = infinite;

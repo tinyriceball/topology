@@ -20,7 +20,8 @@ int main()
             {
             case '1':
             {
-                graph1.Create();
+                graph1.Create_Graph();
+                graph1.Create_List();
                 Option = 0;
                 break;
             }
@@ -81,18 +82,18 @@ int main()
                     {
                     case '1':
                     {
-						cout << "请输入要插入的结点号" << endl;
-						int Ivertex;
-						cin >> Ivertex;
-                        graph1.Insert_vertex(G,Ivertex);
+                        cout << "请输入要插入的结点号" << endl;
+                        int Ivertex;
+                        cin >> Ivertex;
+                        graph1.Insert_vertex(Ivertex);
                         break;
                     }
                     case '2':
                     {
-						cout << "请输入要删除的结点号" << endl;
-						int Dvertex;
-						cin >> Ivertex;
-                        graph1.Delete_vertex(G,Dvertex);
+                        cout << "请输入要删除的结点号" << endl;
+                        int Dvertex;
+                        cin >> Dvertex;
+                        graph1.Delete_vertex(Dvertex);
                         break;
                     }
                     case 'q':
