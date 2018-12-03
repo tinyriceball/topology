@@ -8,6 +8,7 @@ List::List()
     next = NULL;
 };
 List::~List(){};
+
 void List::Refresh(int des, int dist, int next)
 {
     Cur_List[des] = dist;
