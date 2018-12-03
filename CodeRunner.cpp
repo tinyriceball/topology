@@ -22,6 +22,7 @@ int main()
             {
                 graph1.Create_Graph();
                 graph1.Create_List();
+
                 Option = 0;
                 break;
             }
@@ -35,17 +36,10 @@ int main()
                      << "| 下一跳地址 |    "
                      << "|距离|" << endl; //跳数 距离
                 cout << "---------------------------------------------------" << endl;
-                List *temp = NULL;
-                temp = graph1.head;
+                List *temp = graph1.head;
+                temp = graph1.ergodic(temp, i);
                 int n = graph1.Vertex_num();
                 int j = 0;
-                // while (j < n && temp->Name != i)
-                // {                    
-                //         temp = temp->next;
-                //         cout << "i=" << i << endl;
-                //         j++;
-                    
-                // }
                 temp->Print(i);
                 Option = 0;
                 break;
@@ -63,12 +57,12 @@ int main()
                     {
                     case '1':
                     {
-                        //graph1.Insert_edge();
+                        graph1.Insert_edge();
                         break;
                     }
                     case '2':
                     {
-                        //graph1.Delete_edge();
+                        graph1.Delete_edge();
                         break;
                     }
                     case 'q':

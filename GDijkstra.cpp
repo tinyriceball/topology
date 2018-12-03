@@ -1,11 +1,6 @@
 #include "GDijkstra.h"
 void Graph::Dijkstra(int v, List *temp)
 {
-    // cout << "|目的主机所在的网络|  "
-    //      << "| 下一跳地址 |    "
-    //      << "|距离|" << endl; //跳数 距离
-    // cout << "---------------------------------------------------" << endl;
-
     int dist[Vertex];
     int i, des;
     int path[Vertex];
@@ -36,23 +31,16 @@ void Graph::Dijkstra(int v, List *temp)
                 min = dist[i];
             }
         }
-        // cout << "   |  " << des << ".x.x.x  |      ";
         if (path[des] == des)
         {
             temp->Refresh(des, dist[des], -1);
-            // cout
-            //     << "|  直接交付  |      " << dist[des] << "  |" << endl; // 距离
-            //cout << "---------------------------------------------------" << endl;
         }
         else
         {
-            temp->Refresh(des, dist[des], path[des]);
-            //temp->Print(v);
-            // cout << "|  " << path[des] << ".x.x.x   |      " << dist[des] << "  |" << endl; // 距离
-            //cout << "---------------------------------------------------" << endl;
+                temp->Refresh(des, dist[des], path[des]);
         }
         s[num++] = des;
-        for (i = 0; i <Vertex; i++)
+        for (i = 0; i < Vertex; i++)
         {
             if (dist[i] > dist[des] + Save_v[des][i])
             {
@@ -62,5 +50,4 @@ void Graph::Dijkstra(int v, List *temp)
         }
         dist[des] = 0;
     }
-    // temp->Print(v);
 };

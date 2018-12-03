@@ -20,6 +20,7 @@ public:
   int Get(int i, int j);               //获得矩阵中元素的信息
   bool Vertex_Verify(int i);           //节点是否存在
   int Vertex_num();
+  List *ergodic(List *node ,int k);
   List *head;
 
 private:

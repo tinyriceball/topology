@@ -18,7 +18,7 @@ void List::Print(int v_num)
 
     for (int vert = 0; vert < Vertex; vert++)
     {
-        if(Cur_List[vert]!=0)
+        if(Cur_List[vert]!=0&&Next_Jump[vert]!=0)
         {
             cout << "   |  " << vert << ".x.x.x  |      ";
             if (Next_Jump[vert] == -1)

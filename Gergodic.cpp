@@ -1,14 +1,16 @@
 #include"Gergodic.h"
-
-//±éÀúÕÒµ½k½áµã£¬·µ»Øk½áµãµÄÂ·ÓÉ±í
+//ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½kï¿½ï¿½ã£¬ï¿½ï¿½ï¿½ï¿½kï¿½ï¿½ï¿½ï¿½Â·ï¿½É±ï¿½
 List * Graph::ergodic(List *h,int k) {
-	
 	while (1) {
 		if (k == h->Name) {
+			cout << h->Name << endl;
+
 			return h;
 		}
 		else {
 			if (h->next == NULL) {
+				cout << h->Name << endl;
+
 				cout << "The node could not be found." << endl;
 				return NULL;
 			}
