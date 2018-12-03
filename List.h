@@ -10,6 +10,8 @@ public:
   List *pre;
   List *next;
   void Refresh(int des, int dist, int next);
+  void Delete_Cur();
+  void Instert();
   List();
   ~List();
 
