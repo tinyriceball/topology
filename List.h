@@ -12,7 +12,7 @@ public:
   void Refresh(int des, int dist, int next);
   void Delete(List *k);
   void Instert();
-  List * Getlist();
+  List * Getlist(List *h, int k);
   List();
   ~List();
 
