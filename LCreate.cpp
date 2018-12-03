@@ -13,5 +13,5 @@ void Graph::Create_List()
         cur->pre = temp;
         Dijkstra(list, temp); //给当前路由表赋值
 
-    } while (Save_v[list][]);
+    } while (1);
 };
