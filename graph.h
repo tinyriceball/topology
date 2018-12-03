@@ -2,7 +2,6 @@
 #include <fstream>
 #include "List.h"
 using namespace std;
-#define Vertex 30
 #define infinite 10000000
 class Graph
 {
@@ -21,9 +20,9 @@ public:
   int Get(int i, int j);               //获得矩阵中元素的信息
   bool Vertex_Verify(int i);           //节点是否存在
   int Vertex_num();
+  List *head;
 
 private:
-  List *head;
   int Save_v[Vertex][Vertex];
   int vertex;
 };

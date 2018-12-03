@@ -1,13 +1,10 @@
 #include "Lget.h"
-
-
-
-//取k结点的路由表
+//取k锟斤拷锟斤拷路锟缴憋拷
 List * List::Getlist(List *h, int k) {
 
 	while (1) {
 		if (k == h->Name) {
-			return h->pre;
+			return h;
 		}
 		else {
 			h = h->next;

@@ -22,19 +22,19 @@ Graph::Graph()
 Graph::~Graph(){};
 bool Graph::Vertex_Verify(int i)
 {
-    for (int a = 1; a <= Vertex; a++)
+    for (int a = 1; a < Vertex; a++)
     {
-        if (Save_v[i][a] != infinite)
+        if (i != a && Save_v[i][a] != infinite)
         {
             return true;
         }
-        return false;
     }
+    return false;
 };
 int Graph::Vertex_num()
 {
-    int num=0;
-    for (int a = 1; a <= Vertex; a++)
+    int num = 0;
+    for (int a = 1; a < Vertex; a++)
     {
         if (Vertex_Verify(a))
         {

@@ -31,7 +31,13 @@ int main()
                 int i = 0;
                 cin >> i;
                 cout << endl;
-                graph1.Dijkstra(i);
+                cout << "|目的主机所在的网络|  "
+                     << "| 下一跳地址 |    "
+                     << "|距离|" << endl; //跳数 距离
+                cout << "---------------------------------------------------" << endl;
+                List *temp = NULL;
+
+                //graph1.-Print(i);
                 Option = 0;
                 break;
             }
@@ -85,7 +91,7 @@ int main()
                         cout << "请输入要插入的结点号" << endl;
                         int Ivertex;
                         cin >> Ivertex;
-                        graph1.Insert_vertex(Ivertex);
+                        //graph1.Insert_vertex(Ivertex);
                         break;
                     }
                     case '2':
@@ -93,7 +99,7 @@ int main()
                         cout << "请输入要删除的结点号" << endl;
                         int Dvertex;
                         cin >> Dvertex;
-                        graph1.Delete_vertex(Dvertex);
+                       // graph1.Delete_vertex(Dvertex);
                         break;
                     }
                     case 'q':
