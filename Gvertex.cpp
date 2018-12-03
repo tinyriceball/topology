@@ -1,7 +1,4 @@
 #include "Gvertex.h"
-#include <iostream>
-#include <fstream> 
-using namespace std;
 
 
 //向图G中插入结点k
@@ -15,20 +12,21 @@ void Graph::Insert_vertex(Graph *G, int k){
 	fout<< k << " " << k << " " << 0 << endl;
 	fout.close();
 
-	cout << "Insert successful."
+	cout << "Insert successful.";
 }
 
 
 
 //在图G中删除结点k
 void Graph::Delete_vertex(Graph *G,int k) {
+	fstream fin;
 	fin.open("data.txt");
-	int i[Vertex], j[Vertex],k[Vertex];
+	int i[Vertex], j[Vertex],w[Vertex];
 	int counter = 0;
-	while (in >> i[c] >> j[c] >> w[c]) {
-		c++;
+	while (fin >> i[counter] >> j[counter] >> w[counter]) {
+		counter++;
 	}
-	in.close();
+	fin.close();
 	
 	for (int a = 0; a < counter; ++a) {
 		if (k == i[a]) goto dele;
@@ -39,7 +37,7 @@ void Graph::Delete_vertex(Graph *G,int k) {
 dele:
 	//在文件中删除
 	ofstream fout("data.txt");
-	for (int a = 0; a < c; ++a) {
+	for (int a = 0; a < counter; ++a) {
 		if (i[a] == k) continue;
 		fout << i[a] << " " << j[a] << " " << w[a] << endl;
 	}
@@ -49,7 +47,6 @@ dele:
 		Save_v[k][a] = infinite;
 		Save_v[a][k] = infinite;
 	}
-		cout<<"Delete successful."
+	cout << "Delete successful.";
 	}
 
-}
