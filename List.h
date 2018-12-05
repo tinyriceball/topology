@@ -11,8 +11,8 @@ public:
   List *pre;
   List *next;
   void Refresh(int des, int dist, int next);//刷新当前链表的数据
-  void LDelete(List *k);//删除当前节点
-  void Instert();//插入节点
+  void Delete(List *k);//删除当前节点
+  void Instert(List*head,int router);//插入节点
   void Print(int v_num);//输出当前路由表
   List();
   ~List();

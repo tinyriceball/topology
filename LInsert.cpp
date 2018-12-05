@@ -1,15 +1,17 @@
 #include "LInsert.h"
 
-void List::Instert(List *head)
+void List::Instert(List *head,int router)
 {
 	List *a = NULL;
 	List *b = NULL;
 	a = head;
-	while (a != NULL) 
+	while (a->next != NULL)
 	{
 		a = a->next;
 	}
 	b = new List;
-	b = a;
-	cout << "插入成功";
+	b->pre = a;
+	a->next = b;
+ 	cout << "插入成功";
+	b->Name = router; 
 }
