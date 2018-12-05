@@ -7,7 +7,7 @@ List * Graph::ergodic(List *h,int k) {
 		}
 		else {
 			if (h->next == NULL) {
-				cout << "The node could not be found." << endl;
+				cout << "该路由器不存在！" << endl;
 				return NULL;
 			}
 			h = h->next;

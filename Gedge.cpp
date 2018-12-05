@@ -9,12 +9,12 @@ void Graph::Insert_edge()
 		return;
 	}
 	int num, i, j, k;
-	cout << "请输入要增加顶点的个数：\n";
+	cout << "请输入要增加边的个数：\n";
 	cin >> num;
 	for (i = 0; i < num; i++)
 	{
 		getchar();
-		cout << "请输入需要添加的顶点：";
+		cout << "请输入增加的边的起始路由器：";
 		cin >> i;
 		if (Vertex_Verify(i))
 		{
@@ -22,7 +22,7 @@ void Graph::Insert_edge()
 			cin >> j;
 			if (i == j)
 			{
-				cout << "开始节点与目的节点为同一个节点，请重新输入" << endl;
+				cout << "开始节点与目的路由器为同一个路由器，请重新输入" << endl;
 				return;
 			}
 			else
@@ -39,6 +39,8 @@ void Graph::Insert_edge()
 						app << " ";
 						app << k;
 						app << endl;
+						Save_v[i][j] = k;
+						Save_v[j][i] = k;
 						cout << "插入成功";
 						Refresh_List();
 						return;
@@ -52,7 +54,7 @@ void Graph::Insert_edge()
 				else
 				{
 					int judge = 0;
-					cout << "该节点不存在，是否要插入新节点？输入1插入新节点" << endl;
+					cout << "该节点不存在，是否要插入新节点？输入1插入新节点，输入任意值返回" << endl;
 					cin >> judge;
 					if (judge == 1)
 					{
@@ -67,9 +69,8 @@ void Graph::Insert_edge()
 		}
 		else
 		{
-			cout << "该节点不存在，是否要插入新节点？" << endl;
 			int judge = 0;
-			cout << "该节点不存在，是否要插入新节点？输入1插入新节点" << endl;
+			cout << "该节点不存在，是否要插入新节点？输入1插入新节点，输入任意值返回" << endl;
 			cin >> judge;
 			if (judge == 1)
 			{
@@ -108,27 +109,31 @@ void Graph::Delete_edge()
 	cout << "------------------------------" << endl;
 	infile.close();
 	int start, end;
-	cout << "输入你想删除的路径的起始顶点：";
+	cout << "输入你想删除的路径的起始路由器：";
 	cin >> start;
-	cout << "输入你想删除的路径的终止顶点：";
+	cout << "输入你想删除的路径的路由器：";
 	cin >> end;
 	int f = 0;
+	cout << "x" << endl;
 	if (start != end && Save_v[start][end] != infinite)
 	{
+		cout << "1" << endl;
+
 		while (f < count)
 		{
 			if (a[f] == start && b[f] == end)
 			{
 				c[f] = infinite;
-				cout << "删除成功"<<endl;
+				cout << "删除成功" << endl;
 				break;
 			}
 			if (a[f] == end && b[f] == start)
 			{
 				c[f] = infinite;
-				cout << "删除成功"<<endl;
+				cout << "删除成功" << endl;
 				break;
 			}
+			f++;
 		}
 		ofstream outfile;
 		outfile.open("data.txt", ios::out);

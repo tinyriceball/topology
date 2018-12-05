@@ -1,8 +1,6 @@
 #include "Gvertex.h"
-//��ͼG�в�����k
 void Graph::Insert_vertex(int k)
 {
-	//�ı�ߵ��ڽӾ���
 	if (k < 1 || k > Vertex)
 	{
 		cout << "非法的请求" << endl;
@@ -10,7 +8,6 @@ void Graph::Insert_vertex(int k)
 	}
 	else
 	{
-		//���ļ���д��k k 0
 		fstream fout;
 		fout.open("data.txt", ios::out | ios::app);
 		int end = 0, dist = 0;
@@ -27,6 +24,7 @@ void Graph::Insert_vertex(int k)
 				Save_v[end][k] = dist;
 				fout.close();
 				cout << "Insert successful.";
+				head->Instert(head, k);
 				Refresh_List();
 			}
 			else
@@ -43,9 +41,10 @@ void Graph::Insert_vertex(int k)
 	}
 }
 
-//��ͼG��ɾ�����k
 void Graph::Delete_vertex(int k)
 {
+	List *temp = head;
+	temp = ergodic(head, k);
 	fstream fin;
 	fin.open("data.txt");
 	int i[Vertex], j[Vertex], w[Vertex];
@@ -58,10 +57,10 @@ void Graph::Delete_vertex(int k)
 
 	for (int a = 0; a < counter; ++a)
 	{
-		if (k == i[a]||k==j[a])
+		if (k == i[a] || k == j[a])
 			goto dele;
 	}
-	cout << "The vertex could not be found." << endl;
+	cout << "该路由器不存在" << endl;
 	return;
 //ɾ��
 dele:
@@ -69,7 +68,7 @@ dele:
 	ofstream fout("data.txt");
 	for (int a = 0; a < counter; ++a)
 	{
-		if (i[a] == k||j[a]==k)
+		if (i[a] == k || j[a] == k)
 			continue;
 		fout << i[a] << " " << j[a] << " " << w[a] << endl;
 	}
@@ -86,6 +85,14 @@ dele:
 			Save_v[a][k] = infinite;
 		}
 	}
-	cout << "Delete successful.";
+
+	cout << "删除成功" << endl;
+	if (temp->next == NULL)
+	{
+		temp = NULL;
+	}
+	temp->pre->next = temp->next;
+	temp->next->pre = temp->pre;
 	Refresh_List();
+	cout << "删除成功" << endl;
 }

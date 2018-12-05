@@ -6,7 +6,7 @@ void Graph::Create_Graph()
     int i, j, w;
     if (fin.eof())
     {
-        cout << "fail to open the file" << endl;
+        cout << "文件打开失败" << endl;
     }
     else
     {
@@ -18,7 +18,7 @@ void Graph::Create_Graph()
             Save_v[j][i] = w;
         }
     }
-    cout << "the graph was create successfully" << endl;
+    cout << "拓扑创建成功" << endl;
     fin.close();
 };
 int Graph::Get(int i, int j)

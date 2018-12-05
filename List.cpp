@@ -19,16 +19,16 @@ void List::Print(int v_num)
     {
         if (Distance[vert] != 0 && Next_Jump[vert] != 0) //当前路径是否存在
         {
-            cout << "   |  " << vert << ".x.x.x  |      ";
+            cout << "   |  " << vert << ".x.x.x    ";
             if (Next_Jump[vert] == -1)
             {
                 cout
-                    << "|  直接交付  |      " << Distance[vert] << "  |" << endl; // 距离
+                    << "|  直接交付  |   " << Distance[vert] << "  |" << endl; // 距离
                 cout << "---------------------------------------------------" << endl;
             }
             else
             {
-                cout << "|  " << Next_Jump[vert] << ".x.x.x   |      " << Distance[vert] << "  |" << endl; // 距离
+                cout << "|  " << Next_Jump[vert] << ".x.x.x   |   " << Distance[vert] << "  |" << endl; // 距离
                 cout << "---------------------------------------------------" << endl;
             }
             v_num--;
