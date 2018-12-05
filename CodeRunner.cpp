@@ -40,68 +40,34 @@ int main()
                 temp = graph1.ergodic(temp, i);
                 int n = graph1.Vertex_num();
                 int j = 0;
-                temp->Print(i);
+                if (temp->Name)
+                {
+                    temp->Print(i);
+                }
                 Option = 0;
                 break;
             }
             case '3':
             {
                 char Operand;
-                cout << "请输入您要进行的操作" << endl;
-                cout << "[1]插入边" << endl;
-                cout << "[2]删除边" << endl;
-                cout << "[q]返回上一级" << endl;
-                cin >> Operand;
-                switch (Operand)
+                while (Operand != 'q')
                 {
-
-                case '1':
-                {
-                    graph1.Insert_edge();
-                    break;
-                }
-                case '2':
-                {
-                    graph1.Delete_edge();
-                    break;
-                }
-                case 'q':
-                {
-                    break;
-                }
-                default:
-                {
-                    cout << "输入有误，请重新输入" << endl;
-                    break;
-                }
-                }
-                break;
-            }
-            case '4':
-            {
-                char Operand;
-                cout << "请输入您要进行的操作" << endl;
-                cout << "[1]插入点" << endl;
-                cout << "[2]删除点" << endl;
-                cout << "[q]返回上一级" << endl;
-                cin >> Operand;
-                switch (Operand)
-                {
+                    cout << "请输入您要进行的操作" << endl;
+                    cout << "[1]插入边" << endl;
+                    cout << "[2]删除边" << endl;
+                    cout << "[q]返回上一级" << endl;
+                    cin >> Operand;
+                    switch (Operand)
                     {
+
                     case '1':
                     {
-                        cout << "请输入要插入的结点号" << endl;
-                        int Ivertex;
-                        cin >> Ivertex;
-                        graph1.Insert_vertex(Ivertex);
+                        graph1.Insert_edge();
                         break;
                     }
                     case '2':
                     {
-                        cout << "请输入要删除的结点号" << endl;
-                        int Dvertex;
-                        cin >> Dvertex;
-                        graph1.Delete_vertex(Dvertex);
+                        graph1.Delete_edge();
                         break;
                     }
                     case 'q':
@@ -114,8 +80,51 @@ int main()
                         break;
                     }
                     }
-                    break;
                 }
+                break;
+            }
+            case '4':
+            {
+                char Operand;
+                while (Operand != 'q')
+                {
+                    cout << "请输入您要进行的操作" << endl;
+                    cout << "[1]插入点" << endl;
+                    cout << "[2]删除点" << endl;
+                    cout << "[q]返回上一级" << endl;
+                    cin >> Operand;
+                    switch (Operand)
+                    {
+                        {
+                        case '1':
+                        {
+                            cout << "请输入要插入的结点号" << endl;
+                            int Ivertex;
+                            cin >> Ivertex;
+                            graph1.Insert_vertex(Ivertex);
+                            break;
+                        }
+                        case '2':
+                        {
+                            cout << "请输入要删除的结点号" << endl;
+                            int Dvertex;
+                            cin >> Dvertex;
+                            graph1.Delete_vertex(Dvertex);
+                            break;
+                        }
+                        case 'q':
+                        {
+                            break;
+                        }
+                        default:
+                        {
+                            cout << "输入有误，请重新输入" << endl;
+                            break;
+                        }
+                        }
+                    }
+                }
+                break;
             }
             case 'q':
             {
@@ -131,4 +140,3 @@ int main()
     }
     return 0;
 }
-
