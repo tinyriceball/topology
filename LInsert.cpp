@@ -1,6 +1,6 @@
 #include "LInsert.h"
 
-void List::Instert(List *head,int router)
+void List::Instert(List *head, int router)
 {
 	List *a = NULL;
 	List *b = NULL;
@@ -12,6 +12,6 @@ void List::Instert(List *head,int router)
 	b = new List;
 	b->pre = a;
 	a->next = b;
- 	cout << "插入成功";
-	b->Name = router; 
+	b->Name = router;
+	cout<< "插入成功" << endl;
 }

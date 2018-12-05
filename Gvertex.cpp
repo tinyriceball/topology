@@ -23,9 +23,10 @@ void Graph::Insert_vertex(int k)
 				Save_v[k][end] = dist;
 				Save_v[end][k] = dist;
 				fout.close();
-				cout << "Insert successful.";
 				head->Instert(head, k);
 				Refresh_List();
+				cout << "Insert successful.";
+				return;
 			}
 			else
 			{
@@ -45,6 +46,8 @@ void Graph::Delete_vertex(int k)
 {
 	List *temp = head;
 	temp = ergodic(head, k);
+	temp->Name = -1;
+	cout << "temp" << temp->Name << endl;
 	fstream fin;
 	fin.open("data.txt");
 	int i[Vertex], j[Vertex], w[Vertex];
@@ -55,16 +58,14 @@ void Graph::Delete_vertex(int k)
 	}
 	fin.close();
 
-	for (int a = 0; a < counter; ++a)
+	for (int a = 0; a < counter; a++)
 	{
 		if (k == i[a] || k == j[a])
 			goto dele;
 	}
 	cout << "该路由器不存在" << endl;
 	return;
-//ɾ��
 dele:
-	//���ļ���ɾ��
 	ofstream fout("data.txt");
 	for (int a = 0; a < counter; ++a)
 	{
@@ -73,26 +74,31 @@ dele:
 		fout << i[a] << " " << j[a] << " " << w[a] << endl;
 	}
 	fout.close();
-	//���ıߵ��ڽӾ���
-	for (int a = 0; a < Vertex; ++a)
+	for (int a = 1; a < Vertex; a++)
 	{
-		if (a == k)
-		{
-		}
-		else
+		if (a != k)
 		{
 			Save_v[k][a] = infinite;
 			Save_v[a][k] = infinite;
 		}
 	}
 
-	cout << "删除成功" << endl;
 	if (temp->next == NULL)
 	{
-		temp = NULL;
+		delete (temp);
+		temp=NULL;
+		Refresh_List();
 	}
-	temp->pre->next = temp->next;
-	temp->next->pre = temp->pre;
-	Refresh_List();
+	else
+	{
+		temp->pre->next = temp->next;
+		temp->next->pre = temp->pre;
+		delete (temp);
+		temp = NULL;
+		Refresh_List();
+	}
+
+	cout << Vertex_Verify(k);
 	cout << "删除成功" << endl;
+	return;
 }

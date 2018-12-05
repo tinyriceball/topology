@@ -1,17 +1,24 @@
 #include "List.h"
+#include <string.h>
 List::List()
 {
     Name = -1;
-    Distance[0] = 0;
-    Next_Jump[0] = 0;
+    memset(Distance, 0, Vertex);
+    memset(Next_Jump, 0, Vertex);
     pre = NULL;
     next = NULL;
 };
-List::~List(){};
+List::~List(){
+};
 void List::Refresh(int des, int dist, int next) //赋值函数
 {
     Distance[des] = dist;
     Next_Jump[des] = next;
+};
+void List::Originate()
+{
+    memset(Distance, 0, sizeof(int) * Vertex);
+    memset(Next_Jump, 0, sizeof(int) * Vertex);
 };
 void List::Print(int v_num)
 {

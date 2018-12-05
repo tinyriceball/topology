@@ -15,17 +15,14 @@ int main()
         cout << "[4]节点操作" << endl;
         cout << "[q]退出程序" << endl;
         cout << "---------------------------------------------------" << endl;
-
         cin >> Option;
-
         switch (Option)
         {
         case '1':
         {
             graph1.Create_Graph();
             graph1.Create_List();
-
-            Option = 0;
+            Option = '0';
             break;
         }
         case '2':
@@ -46,22 +43,20 @@ int main()
                 cout << "---------------------------------------------------" << endl;
                  temp->Print(i);
             }
-         
-            Option = 0;
+            Option = '0';
             break;
         }
         case '3':
         {
             char Operand = '0';
-            while (Operand != '3')
+            while (Operand != 'q')
             {
                 cout << "---------------------------------------------------" << endl;
                 cout << "请输入您要进行的操作" << endl;
                 cout << "[1]插入边" << endl;
                 cout << "[2]删除边" << endl;
-                cout << "[3]返回上一级" << endl;
+                cout << "[q]返回上一级" << endl;
                 cout << "---------------------------------------------------" << endl;
-
                 cin >> Operand;
                 switch (Operand)
                 {
@@ -69,29 +64,33 @@ int main()
                 case '1':
                 {
                     graph1.Insert_edge();
+                    Operand ='0';
                     break;
                 }
                 case '2':
                 {
                     graph1.Delete_edge();
+                    Operand = '0';
                     break;
                 }
-                case '3':
+                case 'q':
                 {
                     break;
                 }
                 default:
                 {
                     cout << "输入有误，请重新输入" << endl;
+                    Operand = '0';
                     break;
                 }
                 }
             }
+            Option = '0';
             break;
         }
         case '4':
         {
-            char Operand;
+            char Operand='0';
             while (Operand != 'q')
             {
                 cout << "---------------------------------------------------" << endl;
@@ -111,6 +110,7 @@ int main()
                         int Ivertex;
                         cin >> Ivertex;
                         graph1.Insert_vertex(Ivertex);
+                        Operand = '0';
                         break;
                     }
                     case '2':
@@ -119,6 +119,7 @@ int main()
                         int Dvertex;
                         cin >> Dvertex;
                         graph1.Delete_vertex(Dvertex);
+                        Operand = '0';
                         break;
                     }
                     case 'q':
@@ -127,21 +128,24 @@ int main()
                     }
                     default:
                     {
+                        Operand = '0';
                         cout << "输入有误，请重新输入" << endl;
                         break;
                     }
                     }
                 }
             }
+            Option = '0';
             break;
         }
         case 'q':
         {
-            return 0;
+            return '0';
         }
         default:
         {
             cout << "输入有误，请重新输入" << endl;
+            Option = '0';
             break;
         }
         }
