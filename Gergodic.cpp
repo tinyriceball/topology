@@ -9,8 +9,6 @@ List * Graph::ergodic(List *h,int k) {
 		}
 		else {
 			if (h->next == NULL) {
-				cout << h->Name << endl;
-
 				cout << "The node could not be found." << endl;
 				return NULL;
 			}

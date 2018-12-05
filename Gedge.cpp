@@ -1,12 +1,12 @@
 #include "Gedge.h"
-int Graph::Insert_edge()
+void Graph::Insert_edge()
 {
 	ofstream app;
 	app.open("data.txt", ofstream::app);
 	if (!app)
 	{
 		cout << "打开文件失败";
-		return -1;
+		return;
 	}
 	int num, i, j, k;
 	cout << "请输入要增加顶点的个数：\n";
@@ -16,39 +16,95 @@ int Graph::Insert_edge()
 		getchar();
 		cout << "请输入需要添加的顶点：";
 		cin >> i;
-		cout << "请输入另外一个结点：";
-		cin >> j;
-		if (Save_v[i][j] == 0 || Save_v[i][j] == infinite)
+		if (Vertex_Verify(i))
 		{
-			cout << "请输入两个结点之间的距离：";
-			cin >> k;
-			app << i;
-			app << j;
-			app << k;
-			cout << "插入成功";
+			cout << "请输入另外一个结点：";
+			cin >> j;
+			if (i == j)
+			{
+				cout << "开始节点与目的节点为同一个节点，请重新输入" << endl;
+				return;
+			}
+			else
+			{
+				if (Vertex_Verify(j))
+				{
+					if (i != j && Save_v[i][j] == infinite)
+					{
+						cout << "请输入两个结点之间的距离：";
+						cin >> k;
+						app << i;
+						app << " ";
+						app << j;
+						app << " ";
+						app << k;
+						app << endl;
+						cout << "插入成功";
+						Refresh_List();
+						cout << "x" << endl;
+						return;
+					}
+					else
+					{
+						cout << "输入的信息已存在，输入失败，请重新操作";
+						i--;
+					}
+				}
+				else
+				{
+					int judge = 0;
+					cout << "该节点不存在，是否要插入新节点？输入1插入新节点" << endl;
+					cin >> judge;
+					if (judge == 1)
+					{
+						Insert_vertex(j);
+					}
+					else
+					{
+						return;
+					}
+				}
+			}
 		}
 		else
 		{
-			cout << "输入的信息已存在，输入失败，请重新操作";
-			i--;
+			cout << "该节点不存在，是否要插入新节点？" << endl;
+			int judge = 0;
+			cout << "该节点不存在，是否要插入新节点？输入1插入新节点" << endl;
+			cin >> judge;
+			if (judge == 1)
+			{
+				Insert_vertex(i);
+			}
+			else
+			{
+				return;
+			}
 		}
 	}
 	app.close();
-	return 0;
 }
 
-int Graph::Delete_edge()
+void Graph::Delete_edge()
 {
-	ifstream infile("data.txt");
+	ifstream infile;
+	infile.open("data.txt");
 	int a[Vertex], b[Vertex], c[Vertex];
 	int x = 0;
 	int count = 0;
-	while (!infile.eof())
+	while (infile >> a[x])
 	{
-		infile >> a[x] >> b[x] >> c[x];
+		// infile >> a[x];
+		cout << a[x];
+		infile >> b[x];
+		cout << b[x];
+		infile >> c[x];
+		cout << c[x] << endl;
+
 		x++;
 		count = x;
 	}
+	cout << "1" << endl;
 	infile.close();
 	int start, end;
 	cout << "输入你想删除的路径的起始顶点：";
@@ -56,20 +112,52 @@ int Graph::Delete_edge()
 	cout << "输入你想删除的路径的终止顶点：";
 	cin >> end;
 	int f = 0;
-	while (f < count)
+	if (start != end && Save_v[start][end] != infinite)
 	{
-		if (a[f] == start && b[f] == end)
+		while (f < count)
 		{
-			c[f] = infinite;
-			cout << "删除成功";
-			break;
+			if (a[f] == start && b[f] == end)
+			{
+				c[f] = infinite;
+				cout << "删除成功";
+				break;
+			}
+			if (a[f] == end && b[f] == start)
+			{
+				c[f] = infinite;
+				cout << "删除成功";
+				break;
+			}
 		}
+		cout << "-------------" << endl;
+		ofstream outfile;
+		outfile.open("data.txt", ios::out);
+		for (f = 0; f < count; f++)
+		{
+			if (c[f] != 0 && c[f] != infinite)
+			{
+				outfile << a[f] << " ";
+				outfile << b[f] << " ";
+				outfile << c[f] << endl;
+			}
+		}
+		outfile.close();
+		if (!Vertex_Verify(start)) //如果删除该边后，开始点不存在边，则将该路由表从链表中移除
+		{
+			List *temp = head;
+			temp = ergodic(temp, start);
+			temp->Delete(temp);
+		}
+		if (!Vertex_Verify(end)) //如果删除该边后，结束点不存在边，则将该路由表从链表中移除
+		{
+			List *temp = head;
+			temp = ergodic(temp, end);
+			temp->Delete(temp);
+		}
+		Refresh_List();
+	}
+	else
+	{
 		cout << "输入的路径不存在";
 	}
-	ofstream outfile("data.txt");
-	for (f = 0; c[f] != 0 && c[f] != infinite; f++)
-	{
-		outfile << a[f] << b[f] << c[f];
-	}
-	outfile.close();
 }

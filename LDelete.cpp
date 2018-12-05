@@ -1,20 +1,17 @@
 #include "LDelete.h"
+#include <stdlib.h>
 
-
-//É¾³ýk½áµãµÄÂ·ÓÉ±í
+//É¾ï¿½ï¿½kï¿½ï¿½ï¿½ï¿½Â·ï¿½É±ï¿½
 void List::Delete(List *k) {
-	List * p, *l;//Ç° ºó
-
-	//×îºóÒ»¸ö
-	if (k->next = NULL) {
+	List * p, *l;//Ç° ï¿½ï¿½
+	//ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
+	if (k->next == NULL) {
 		p = k->pre;
 		p->next = NULL;
 		k->pre = NULL;
 		free(k);
-
 	}
-
-	//ÆäËûÎ»ÖÃÉ¾³ý
+	//ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½É¾ï¿½ï¿½
 	p = k->pre;
 	l = k->next;
 	p->next = k->pre;
@@ -22,5 +19,4 @@ void List::Delete(List *k) {
 	k->pre = NULL;
 	k->next = NULL;
 	free(k);
-
 }
