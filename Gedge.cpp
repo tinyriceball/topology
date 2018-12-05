@@ -1,163 +1,347 @@
+
 #include "Gedge.h"
+
 void Graph::Insert_edge()
+
 {
+
 	ofstream app;
+
 	app.open("data.txt", ofstream::app);
+
 	if (!app)
+
 	{
-		cout << "æ‰“å¼€æ–‡ä»¶å¤±è´¥";
+
+		cout << "´ò¿ªÎÄ¼şÊ§°Ü";
+
 		return;
+
 	}
+
 	int num, i, j, k;
-	cout << "è¯·è¾“å…¥è¦å¢åŠ é¡¶ç‚¹çš„ä¸ªæ•°ï¼š\n";
+
+
+	cout << "ÕÅ×¿È»" << endl;
+
+	cout << "ÇëÊäÈëÒªÔö¼Ó±ßµÄ¸öÊı£º\n";
+
 	cin >> num;
+
 	for (i = 0; i < num; i++)
+
 	{
+
 		getchar();
-		cout << "è¯·è¾“å…¥éœ€è¦æ·»åŠ çš„é¡¶ç‚¹ï¼š";
+
+		cout << "ÇëÊäÈëÔö¼ÓµÄ±ßµÄÆğÊ¼Â·ÓÉÆ÷£º";
+
 		cin >> i;
+
 		if (Vertex_Verify(i))
+
 		{
-			cout << "è¯·è¾“å…¥å¦å¤–ä¸€ä¸ªç»“ç‚¹ï¼š";
+
+			cout << "ÇëÊäÈëÁíÍâÒ»¸öÂ·ÓÉÆ÷£º";
+
 			cin >> j;
+
 			if (i == j)
+
 			{
-				cout << "å¼€å§‹èŠ‚ç‚¹ä¸ç›®çš„èŠ‚ç‚¹ä¸ºåŒä¸€ä¸ªèŠ‚ç‚¹ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
+
+				cout << "¿ªÊ¼Â·ÓÉÆ÷ÓëÄ¿µÄÂ·ÓÉÆ÷ÎªÍ¬Ò»¸öÂ·ÓÉÆ÷£¬ÇëÖØĞÂÊäÈë" << endl;
+
 				return;
+
 			}
+
 			else
+
 			{
+
 				if (Vertex_Verify(j))
+
 				{
+
 					if (i != j && Save_v[i][j] == infinite)
+
 					{
-						cout << "è¯·è¾“å…¥ä¸¤ä¸ªç»“ç‚¹ä¹‹é—´çš„è·ç¦»ï¼š";
+
+						cout << "ÇëÊäÈëÁ½¸öÂ·ÓÉÆ÷Ö®¼äµÄ¾àÀë£º";
+
 						cin >> k;
+
 						app << i;
+
 						app << " ";
+
 						app << j;
+
 						app << " ";
+
 						app << k;
+
 						app << endl;
-						cout << "æ’å…¥æˆåŠŸ";
+
+						Save_v[i][j] = k;
+
+						Save_v[j][i] = k;
+
+						cout << "²åÈë³É¹¦" << endl;
+
+						cout << endl;
+
 						Refresh_List();
+
 						return;
+
 					}
+
 					else
+
 					{
-						cout << "è¾“å…¥çš„ä¿¡æ¯å·²å­˜åœ¨ï¼Œè¾“å…¥å¤±è´¥ï¼Œè¯·é‡æ–°æ“ä½œ";
+
+						cout << "ÊäÈëµÄĞÅÏ¢ÒÑ´æÔÚ£¬ÊäÈëÊ§°Ü£¬ÇëÖØĞÂ²Ù×÷" << endl;
+
+						cout << endl;
+
 						i--;
+
 					}
+
 				}
+
 				else
+
 				{
+
 					int judge = 0;
-					cout << "è¯¥èŠ‚ç‚¹ä¸å­˜åœ¨ï¼Œæ˜¯å¦è¦æ’å…¥æ–°èŠ‚ç‚¹ï¼Ÿè¾“å…¥1æ’å…¥æ–°èŠ‚ç‚¹" << endl;
+
+					cout << "ÊäÈë1²åÈëĞÂÂ·ÓÉÆ÷£¬ÊäÈëÈÎÒâÖµ·µ»Ø" << endl;
+
+					cout << endl;
+
 					cin >> judge;
+
 					if (judge == 1)
+
 					{
+
 						Insert_vertex(j);
+
 					}
+
 					else
+
 					{
+
 						return;
+
 					}
+
 				}
+
 			}
+
 		}
+
 		else
+
 		{
-			cout << "è¯¥èŠ‚ç‚¹ä¸å­˜åœ¨ï¼Œæ˜¯å¦è¦æ’å…¥æ–°èŠ‚ç‚¹ï¼Ÿ" << endl;
+
+			cout << "¸ÃÂ·ÓÉÆ÷²»´æÔÚ£¬ÊÇ·ñÒª²åÈëĞÂÂ·ÓÉÆ÷£¿" << endl;
+
+			cout << endl;
+
 			int judge = 0;
-			cout << "è¯¥èŠ‚ç‚¹ä¸å­˜åœ¨ï¼Œæ˜¯å¦è¦æ’å…¥æ–°èŠ‚ç‚¹ï¼Ÿè¾“å…¥1æ’å…¥æ–°èŠ‚ç‚¹" << endl;
+
+			cout << "¸ÃÂ·ÓÉÆ÷²»´æÔÚ£¬ÊÇ·ñÒª²åÈëĞÂÂ·ÓÉÆ÷£¿ÊäÈë1Ìí¼ÓĞÂÂ·ÓÉÆ÷£¬ÊäÈëÈÎÒâÖµ·µ»Ø" << endl;
+
+			cout << endl;
+
 			cin >> judge;
+
 			if (judge == 1)
+
 			{
+
 				Insert_vertex(i);
+
 			}
+
 			else
+
 			{
+
 				return;
+
 			}
+
 		}
+
 	}
+
 	app.close();
+
 }
 
+
+
 void Graph::Delete_edge()
+
 {
+
 	ifstream infile;
+
 	infile.open("data.txt");
+
 	int a[Vertex], b[Vertex], c[Vertex];
+
 	int x = 0;
+
 	int count = 0;
+
 	cout << "------------------------------" << endl;
-	cout << "å½“å‰å­˜åœ¨è·¯å¾„æœ‰:" << endl;
+
+	cout << "µ±Ç°´æÔÚÂ·¾¶ÓĞ:" << endl;
+
 	cout << "------------------------------" << endl;
-	cout << "èµ·ç‚¹ \t"
-		 << "ç»ˆç‚¹" << endl;
+
+	cout << "Æğµã \t"
+
+		<< "ÖÕµã" << endl;
+
 	while (infile >> a[x])
+
 	{
+
 		cout << a[x] << "   <->   ";
+
 		infile >> b[x];
+
 		cout << b[x] << endl;
+
 		infile >> c[x];
+
 		x++;
+
 		count = x;
+
 	}
+
 	cout << "------------------------------" << endl;
+
 	infile.close();
+
 	int start, end;
-	cout << "è¾“å…¥ä½ æƒ³åˆ é™¤çš„è·¯å¾„çš„èµ·å§‹é¡¶ç‚¹ï¼š";
+
+	cout << "ÊäÈëÄãÏëÉ¾³ıµÄÂ·¾¶µÄÆğÊ¼Â·ÓÉÆ÷£º";
+
 	cin >> start;
-	cout << "è¾“å…¥ä½ æƒ³åˆ é™¤çš„è·¯å¾„çš„ç»ˆæ­¢é¡¶ç‚¹ï¼š";
+
+	cout << "ÊäÈëÄãÏëÉ¾³ıµÄÂ·¾¶µÄÖÕÖ¹Â·ÓÉÆ÷£º";
+
 	cin >> end;
+
 	int f = 0;
+
 	if (start != end && Save_v[start][end] != infinite)
+
 	{
+
 		while (f < count)
+
 		{
+
 			if (a[f] == start && b[f] == end)
+
 			{
+
 				c[f] = infinite;
-				cout << "åˆ é™¤æˆåŠŸ"<<endl;
+
+				cout << "É¾³ı³É¹¦" << endl;
+
+				cout << endl;
+
 				break;
+
 			}
+
 			if (a[f] == end && b[f] == start)
+
 			{
+
 				c[f] = infinite;
-				cout << "åˆ é™¤æˆåŠŸ"<<endl;
+
+				cout << "É¾³ı³É¹¦" << endl;
+
+				cout << endl;
+
 				break;
+
 			}
+			f++;
+
 		}
+
 		ofstream outfile;
+
 		outfile.open("data.txt", ios::out);
+
 		for (f = 0; f < count; f++)
+
 		{
+
 			if (c[f] != 0 && c[f] != infinite)
+
 			{
+
 				outfile << a[f] << " ";
+
 				outfile << b[f] << " ";
+
 				outfile << c[f] << endl;
+
 			}
+
 		}
+
 		outfile.close();
-		if (!Vertex_Verify(start)) //å¦‚æœåˆ é™¤è¯¥è¾¹åï¼Œå¼€å§‹ç‚¹ä¸å­˜åœ¨è¾¹ï¼Œåˆ™å°†è¯¥è·¯ç”±è¡¨ä»é“¾è¡¨ä¸­ç§»é™¤
+
+		if (!Vertex_Verify(start)) //Èç¹ûÉ¾³ı¸Ã±ßºó£¬¿ªÊ¼µã²»´æÔÚ±ß£¬Ôò½«¸ÃÂ·ÓÉ±í´ÓÁ´±íÖĞÒÆ³ı
+
 		{
+
 			List *temp = head;
+
 			temp = ergodic(temp, start);
+
 			temp->Delete(temp);
+
 		}
-		if (!Vertex_Verify(end)) //å¦‚æœåˆ é™¤è¯¥è¾¹åï¼Œç»“æŸç‚¹ä¸å­˜åœ¨è¾¹ï¼Œåˆ™å°†è¯¥è·¯ç”±è¡¨ä»é“¾è¡¨ä¸­ç§»é™¤
+
+		if (!Vertex_Verify(end)) //Èç¹ûÉ¾³ı¸Ã±ßºó£¬½áÊøµã²»´æÔÚ±ß£¬Ôò½«¸ÃÂ·ÓÉ±í´ÓÁ´±íÖĞÒÆ³ı
+
 		{
+
 			List *temp = head;
+
 			temp = ergodic(temp, end);
+
 			temp->Delete(temp);
+
 		}
+
 		Refresh_List();
+
 	}
 	else
 	{
-		cout << "è¾“å…¥çš„è·¯å¾„ä¸å­˜åœ¨";
+
+		cout << "ÊäÈëµÄÂ·¾¶²»´æÔÚ";
+		cout << endl;
+
 	}
+
 }
