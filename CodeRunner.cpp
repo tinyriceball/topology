@@ -54,30 +54,29 @@ int main()
                 cin >> Operand;
                 switch (Operand)
                 {
-                    {
-                    case '1':
-                    {
-                        graph1.Insert_edge();
-                        break;
-                    }
-                    case '2':
-                    {
-                        graph1.Delete_edge();
-                        break;
-                    }
-                    case 'q':
-                    {
-                        break;
-                    }
-                    default:
-                    {
-                        cout << "输入有误，请重新输入" << endl;
-                        break;
-                    }
-                    }
 
+                case '1':
+                {
+                    graph1.Insert_edge();
                     break;
                 }
+                case '2':
+                {
+                    graph1.Delete_edge();
+                    break;
+                }
+                case 'q':
+                {
+                    break;
+                }
+                default:
+                {
+                    cout << "输入有误，请重新输入" << endl;
+                    break;
+                }
+                }
+                break;
+            }
             case '4':
             {
                 char Operand;
@@ -117,6 +116,7 @@ int main()
                     }
                     break;
                 }
+            }
             case 'q':
             {
                 return 0;
@@ -127,9 +127,8 @@ int main()
                 break;
             }
             }
-            }
-                return 0;
-            }
         }
     }
+    return 0;
 }
+
