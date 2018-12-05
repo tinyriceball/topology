@@ -85,14 +85,12 @@ int main()
         case '4':
         {
             char Operand;
-            while (Operand != '3')
+            while (Operand != 'q')
             {
-                getchar();
-
                 cout << "请输入您要进行的操作" << endl;
                 cout << "[1]插入点" << endl;
                 cout << "[2]删除点" << endl;
-                cout << "[3]返回上一级" << endl;
+                cout << "[q]返回上一级" << endl;
                 cin >> Operand;
                 switch (Operand)
                 {
@@ -113,7 +111,7 @@ int main()
                         graph1.Delete_vertex(Dvertex);
                         break;
                     }
-                    case '3':
+                    case 'q':
                     {
                         break;
                     }
