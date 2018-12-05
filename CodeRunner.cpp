@@ -4,9 +4,9 @@ using namespace std;
 Graph graph1;
 int main()
 {
-    while (1)
+    char Option = '0';
+    while (Option != 'q')
     {
-        char Option = 0;
         cout << "请输入要进行的操作" << endl;
         cout << "[1]创建拓扑" << endl;
         cout << "[2]查看路由表" << endl;
@@ -14,43 +14,47 @@ int main()
         cout << "[4]节点操作" << endl;
         cout << "[q]退出程序" << endl;
         cin >> Option;
-        while (Option)
-        {
-            switch (Option)
-            {
-            case '1':
-            {
-                graph1.Create_Graph();
-                graph1.Create_List();
 
-                Option = 0;
-                break;
-            }
-            case '2':
+        switch (Option)
+        {
+        case '1':
+        {
+            graph1.Create_Graph();
+            graph1.Create_List();
+
+            Option = 0;
+            break;
+        }
+        case '2':
+        {
+            cout << "请输入您要查看路由表的路由器：";
+            int i = 0;
+            cin >> i;
+            cout << endl;
+            cout << "|目的主机所在的网络|  "
+                 << "| 下一跳地址 |    "
+                 << "|距离|" << endl; //跳数 距离
+            cout << "---------------------------------------------------" << endl;
+            List *temp = graph1.head;
+            temp = graph1.ergodic(temp, i);
+            int n = graph1.Vertex_num();
+            int j = 0;
+            if (temp->Name)
             {
-                cout << "请输入您要查看路由表的路由器：";
-                int i = 0;
-                cin >> i;
-                cout << endl;
-                cout << "|目的主机所在的网络|  "
-                     << "| 下一跳地址 |    "
-                     << "|距离|" << endl; //跳数 距离
-                cout << "---------------------------------------------------" << endl;
-                List *temp = graph1.head;
-                temp = graph1.ergodic(temp, i);
-                int n = graph1.Vertex_num();
-                int j = 0;
                 temp->Print(i);
-                Option = 0;
-                break;
             }
-            case '3':
+            Option = 0;
+            break;
+        }
+        case '3':
+        {
+            char Operand = '0';
+            while (Operand != '3')
             {
-                char Operand;
                 cout << "请输入您要进行的操作" << endl;
                 cout << "[1]插入边" << endl;
                 cout << "[2]删除边" << endl;
-                cout << "[q]返回上一级" << endl;
+                cout << "[3]返回上一级" << endl;
                 cin >> Operand;
                 switch (Operand)
                 {
@@ -65,7 +69,7 @@ int main()
                     graph1.Delete_edge();
                     break;
                 }
-                case 'q':
+                case '3':
                 {
                     break;
                 }
@@ -75,15 +79,20 @@ int main()
                     break;
                 }
                 }
-                break;
             }
-            case '4':
+            break;
+        }
+        case '4':
+        {
+            char Operand;
+            while (Operand != '3')
             {
-                char Operand;
+                getchar();
+
                 cout << "请输入您要进行的操作" << endl;
                 cout << "[1]插入点" << endl;
                 cout << "[2]删除点" << endl;
-                cout << "[q]返回上一级" << endl;
+                cout << "[3]返回上一级" << endl;
                 cin >> Operand;
                 switch (Operand)
                 {
@@ -104,7 +113,7 @@ int main()
                         graph1.Delete_vertex(Dvertex);
                         break;
                     }
-                    case 'q':
+                    case '3':
                     {
                         break;
                     }
@@ -114,21 +123,20 @@ int main()
                         break;
                     }
                     }
-                    break;
                 }
             }
-            case 'q':
-            {
-                return 0;
-            }
-            default:
-            {
-                cout << "输入有误，请重新输入" << endl;
-                break;
-            }
-            }
+            break;
+        }
+        case 'q':
+        {
+            return 0;
+        }
+        default:
+        {
+            cout << "输入有误，请重新输入" << endl;
+            break;
+        }
         }
     }
     return 0;
 }
-

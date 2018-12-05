@@ -1,5 +1,4 @@
 #include "Gvertex.h"
-
 //��ͼG�в�����k
 void Graph::Insert_vertex(int k)
 {
@@ -59,7 +58,7 @@ void Graph::Delete_vertex(int k)
 
 	for (int a = 0; a < counter; ++a)
 	{
-		if (k == i[a])
+		if (k == i[a]||k==j[a])
 			goto dele;
 	}
 	cout << "The vertex could not be found." << endl;
@@ -70,7 +69,7 @@ dele:
 	ofstream fout("data.txt");
 	for (int a = 0; a < counter; ++a)
 	{
-		if (i[a] == k)
+		if (i[a] == k||j[a]==k)
 			continue;
 		fout << i[a] << " " << j[a] << " " << w[a] << endl;
 	}

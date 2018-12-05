@@ -41,7 +41,6 @@ void Graph::Insert_edge()
 						app << endl;
 						cout << "插入成功";
 						Refresh_List();
-						cout << "x" << endl;
 						return;
 					}
 					else
@@ -92,19 +91,21 @@ void Graph::Delete_edge()
 	int a[Vertex], b[Vertex], c[Vertex];
 	int x = 0;
 	int count = 0;
+	cout << "------------------------------" << endl;
+	cout << "当前存在路径有:" << endl;
+	cout << "------------------------------" << endl;
+	cout << "起点 \t"
+		 << "终点" << endl;
 	while (infile >> a[x])
 	{
-		// infile >> a[x];
-		cout << a[x];
+		cout << a[x] << "   <->   ";
 		infile >> b[x];
-		cout << b[x];
+		cout << b[x] << endl;
 		infile >> c[x];
-		cout << c[x] << endl;
-
 		x++;
 		count = x;
 	}
-	cout << "1" << endl;
+	cout << "------------------------------" << endl;
 	infile.close();
 	int start, end;
 	cout << "输入你想删除的路径的起始顶点：";
@@ -119,17 +120,16 @@ void Graph::Delete_edge()
 			if (a[f] == start && b[f] == end)
 			{
 				c[f] = infinite;
-				cout << "删除成功";
+				cout << "删除成功"<<endl;
 				break;
 			}
 			if (a[f] == end && b[f] == start)
 			{
 				c[f] = infinite;
-				cout << "删除成功";
+				cout << "删除成功"<<endl;
 				break;
 			}
 		}
-		cout << "-------------" << endl;
 		ofstream outfile;
 		outfile.open("data.txt", ios::out);
 		for (f = 0; f < count; f++)
