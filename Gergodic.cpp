@@ -1,10 +1,8 @@
 #include"Gergodic.h"
-//�����ҵ�k��㣬����k����·�ɱ�
+//遍历链表寻找查询节点
 List * Graph::ergodic(List *h,int k) {
 	while (1) {
 		if (k == h->Name) {
-			cout << h->Name << endl;
-
 			return h;
 		}
 		else {
