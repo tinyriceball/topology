@@ -36,7 +36,7 @@ void Graph::Insert_edge()
 					app << " ";
 					app << k;
 					app << endl;
-					cout << "插入成功";
+					cout << "插入成功"<<endl;
 					Refresh_List();
 					return;
 				}

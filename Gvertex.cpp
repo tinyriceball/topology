@@ -47,7 +47,6 @@ void Graph::Delete_vertex(int k)
 	List *temp = head;
 	temp = ergodic(head, k);
 	temp->Name = -1;
-	cout << "temp" << temp->Name << endl;
 	fstream fin;
 	fin.open("data.txt");
 	int i[Vertex], j[Vertex], w[Vertex];
