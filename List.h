@@ -1,49 +1,25 @@
 #ifndef LIST_H
-
 #define LIST_H
-
 #define Vertex 30
-
 #include <iostream>
-
 using namespace std;
-
 #define MAX 100
-
 class List
-
 {
-
 public:
-
-	int Name;
-
-	List *pre;
-
-	List *next;
-
-	void Refresh(int des, int dist, int next); //Ë¢ĞÂµ±Ç°Á´±íµÄÊı¾İ
-
-	void Delete(List *k);                      //É¾³ıµ±Ç°½Úµã
-
-	void Instert(List *head, int router);      //²åÈë½Úµã
-
-	void Print(int v_num);                     //Êä³öµ±Ç°Â·ÓÉ±í
-
-	void Originate();
-
-	List();
-
-	~List();
-
-
+  int Name;
+  List *pre;
+  List *next;
+  void Refresh(int des, int dist, int next); //åˆ·æ–°å½“å‰é“¾è¡¨çš„æ•°æ®
+  void Delete(List *k);                      //åˆ é™¤å½“å‰èŠ‚ç‚¹
+  void Instert(List *head, int router);      //æ’å…¥èŠ‚ç‚¹
+  void Print(int v_num);                     //è¾“å‡ºå½“å‰è·¯ç”±è¡¨
+  void Originate();
+  List();
+  ~List();
 
 private:
-
-	int Distance[MAX];  //×î¶Ì¾àÀë
-
-	int Next_Jump[MAX]; //ÏÂÒ»Ìø
-
+  int Distance[MAX];  //æœ€çŸ­è·ç¦»
+  int Next_Jump[MAX]; //ä¸‹ä¸€è·³
 };
-
 #endif

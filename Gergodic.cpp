@@ -1,31 +1,16 @@
 #include"Gergodic.h"
-
-//±éÀúÁ´±íÑ°ÕÒ²éÑ¯µÄ½Úµã
-
-List * Graph::ergodic(List *h, int k) {
-
+//éåŽ†é“¾è¡¨å¯»æ‰¾æŸ¥è¯¢çš„èŠ‚ç‚¹
+List * Graph::ergodic(List *h,int k) {
 	while (1) {
-
 		if (k == h->Name) {
-
 			return h;
-
 		}
-
 		else {
-
 			if (h->next == NULL) {
-
-				cout << "¸ÃÂ·ÓÉÆ÷²»´æÔÚ£¡" << endl;
-
+				cout << "è¯¥è·¯ç”±å™¨ä¸å­˜åœ¨ï¼" << endl;
 				return NULL;
-
 			}
-
 			h = h->next;
-
 		}
-
 	}
-
 }

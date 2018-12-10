@@ -1,49 +1,25 @@
 #include "LCreate.h"
-
 void Graph::Create_List()
-
 {
+    List *temp = NULL;
+    List *cur = NULL;
+    cur = head;
+    int v_num = Vertex_num(); //æœªæ“ä½œèŠ‚ç‚¹æ•°
+    int router = 1;
+    do
+    {
+        cur->next = new List;
+        temp = cur;
+        cur = cur->next;
+        cur->pre = temp; //é“¾è¡¨å‰åèŠ‚ç‚¹è¿æ¥æ“ä½œ
+        temp->next = cur;
+        cur->Name = router;
+        if (Vertex_Verify(router))
+        {
+            Dijkstra(router, cur); //è°ƒç”¨æœ€çŸ­è·¯å¾„ç®—æ³•
+            v_num--;               //æœªæ“ä½œèŠ‚ç‚¹æ•°-1
 
-	List *temp = NULL;
-
-	List *cur = NULL;
-
-	cur = head;
-
-	int v_num = Vertex_num(); //Î´²Ù×÷½ÚµãÊı
-
-	int router = 1;
-
-	do
-
-	{
-
-		cur->next = new List;
-
-		temp = cur;
-
-		cur = cur->next;
-
-		cur->pre = temp; //Á´±íÇ°ºó½ÚµãÁ¬½Ó²Ù×÷
-
-		temp->next = cur;
-
-		cur->Name = router;
-
-		if (Vertex_Verify(router))
-
-		{
-
-			Dijkstra(router, cur); //µ÷ÓÃ×î¶ÌÂ·¾¶Ëã·¨
-
-			v_num--;               //Î´²Ù×÷½ÚµãÊı-1
-
-
-
-		} //¸øµ±Ç°Â·ÓÉ±í¸³Öµ
-
-		router++;
-
-	} while (v_num);
-
+        } //ç»™å½“å‰è·¯ç”±è¡¨èµ‹å€¼
+        router++;
+    } while (v_num);
 };

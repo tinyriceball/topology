@@ -1,89 +1,45 @@
 #include "graph.h"
-
 Graph::Graph()
-
 {
-
-	for (int i = 0; i < Vertex; i++)
-
-	{
-
-		for (int j = 0; j < Vertex; j++)
-
-		{
-
-			if (i == j)
-
-			{
-
-				Save_v[i][j] = 0;
-
-			}
-
-			else
-
-			{
-
-				Save_v[i][j] = infinite; //Á½µãÖ®¼äÎÞÏÞÔ¶
-
-			}
-
-		}
-
-	}
-
-	head = new List;
-
-	vertex = 0;
-
+    for (int i = 0; i < Vertex; i++)
+    {
+        for (int j = 0; j < Vertex; j++)
+        {
+            if (i == j)
+            {
+                Save_v[i][j] = 0;
+            }
+            else
+            {
+                Save_v[i][j] = infinite; //ä¸¤ç‚¹ä¹‹é—´æ— é™è¿œ
+            }
+        }
+    }
+    head = new List;
+    vertex = 0;
 };
 
-
-
-Graph::~Graph() {};
-
+Graph::~Graph(){};
 bool Graph::Vertex_Verify(int i)
-
 {
-
-	for (int a = 1; a < Vertex; a++)
-
-	{
-
-		if (i != a && Save_v[i][a] != infinite)
-
-		{
-
-			return true;
-
-		}
-
-	}
-
-	return false;
-
+    for (int a = 1; a < Vertex; a++)
+    {
+        if (i != a && Save_v[i][a] != infinite)
+        {
+            return true;
+        }
+    }
+    return false;
 };
-
 int Graph::Vertex_num()
-
 {
-
-	int num = 0;
-
-	for (int a = 1; a < Vertex; a++)
-
-	{
-
-		if (Vertex_Verify(a))
-
-		{
-
-			num++;
-
-		}
-
-	}
-
-	return num;
-
+    int num = 0;
+    for (int a = 1; a < Vertex; a++)
+    {
+        if (Vertex_Verify(a))
+        {
+            num++;
+        }
+    }
+    return num;
 };
