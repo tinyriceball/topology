@@ -8,77 +8,71 @@ void Graph::Insert_edge()
 		cout << "打开文件失败";
 		return;
 	}
-	int num, i, j, k;
-	cout << "请输入要增加顶点的个数：\n";
-	cin >> num;
-	for (i = 0; i < num; i++)
+	int i, j, k;
+	cout << "请输入需要添加的路由器：";
+	cin >> i;
+	if (Vertex_Verify(i))
 	{
-		getchar();
-		cout << "请输入需要添加的顶点：";
-		cin >> i;
-		if (Vertex_Verify(i))
+		cout << "请输入另外一个路由器：";
+		cin >> j;
+		if (i == j)
 		{
-			cout << "请输入另外一个结点：";
-			cin >> j;
-			if (i == j)
-			{
-				cout << "开始节点与目的节点为同一个节点，请重新输入" << endl;
-				return;
-			}
-			else
-			{
-				if (Vertex_Verify(j))
-				{
-					if (i != j && Save_v[i][j] == infinite)
-					{
-						cout << "请输入两个结点之间的距离：";
-						cin >> k;
-						app << i;
-						app << " ";
-						app << j;
-						app << " ";
-						app << k;
-						app << endl;
-						cout << "插入成功";
-						Refresh_List();
-						return;
-					}
-					else
-					{
-						cout << "输入的信息已存在，输入失败，请重新操作";
-						i--;
-					}
-				}
-				else
-				{
-					int judge = 0;
-					cout << "该节点不存在，是否要插入新节点？输入1插入新节点" << endl;
-					cin >> judge;
-					if (judge == 1)
-					{
-						Insert_vertex(j);
-					}
-					else
-					{
-						return;
-					}
-				}
-			}
+			cout << "开始路由器与目的路由器为同一个节点，请重新输入" << endl;
+			return;
 		}
 		else
 		{
-			cout << "该节点不存在，是否要插入新节点？" << endl;
-			int judge = 0;
-			cout << "该节点不存在，是否要插入新节点？输入1插入新节点" << endl;
-			cin >> judge;
-			if (judge == 1)
+			if (Vertex_Verify(j))
 			{
-				Insert_vertex(i);
+				if (Save_v[i][j] == infinite)
+				{
+					cout << "请输入两个结点之间的距离：";
+					cin >> k;
+					Save_v[i][j] = k;
+					Save_v[j][i] = k;
+					app << i;
+					app << " ";
+					app << j;
+					app << " ";
+					app << k;
+					app << endl;
+					cout << "插入成功";
+					Refresh_List();
+					return;
+				}
+				else
+				{
+					cout << "输入的信息已存在，输入失败，请重新操作";
+				}
 			}
 			else
 			{
-				return;
+				int judge = 0;
+				cout << "该节点不存在，是否要插入新节点？输入1插入新节点" << endl;
+				cin >> judge;
+				if (judge == 1)
+				{
+					Insert_vertex(j);
+				}
+				else
+				{
+					return;
+				}
 			}
+		}
+	}
+	else
+	{
+		int judge = 0;
+		cout << "该节点不存在，是否要插入新节点？输入1插入新节点" << endl;
+		cin >> judge;
+		if (judge == 1)
+		{
+			Insert_vertex(i);
+		}
+		else
+		{
+			return;
 		}
 	}
 	app.close();
@@ -146,10 +140,10 @@ void Graph::Delete_edge()
 		}
 		outfile.close();
 		Refresh_List();
-		cout<<"删除成功"<<endl;
+		cout << "删除成功" << endl;
 	}
 	else
 	{
-		cout << "输入的路径不存在";
+		cout << "输入的路径不存在"<<endl;
 	}
 }

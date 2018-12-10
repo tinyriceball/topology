@@ -11,7 +11,7 @@ void Graph::Insert_vertex(int k)
 		fstream fout;
 		fout.open("data.txt", ios::out | ios::app);
 		int end = 0, dist = 0;
-		cout << "请输入与该点有关的边的末节点" << endl;
+		cout << "请输入与该路由器有关的另一个路由器" << endl;
 		cin >> end;
 		if (Vertex_Verify(end))
 		{
@@ -25,7 +25,7 @@ void Graph::Insert_vertex(int k)
 				fout.close();
 				head->Instert(head, k);
 				Refresh_List();
-				cout << "Insert successful.";
+				cout << "插入成功"<<endl;
 				return;
 			}
 			else
@@ -97,8 +97,6 @@ dele:
 		temp = NULL;
 		Refresh_List();
 	}
-
-	cout << Vertex_Verify(k);
 	cout << "删除成功" << endl;
 	return;
 }
