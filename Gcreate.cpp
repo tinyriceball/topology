@@ -25,4 +25,3 @@ int Graph::Get(int i, int j)
 {
     return Save_v[i][j];
 };
-cout<<"1"<<endl;
