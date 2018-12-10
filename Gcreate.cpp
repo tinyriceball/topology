@@ -1,27 +1,53 @@
 #include "Gcreate.h"
+
 void Graph::Create_Graph()
+
 {
-    ifstream fin;
-    fin.open("data.txt");
-    int i, j, w;
-    if (fin.eof())
-    {
-        cout << "æ–‡ä»¶æ‰“å¼€å¤±è´¥" << endl;
-    }
-    else
-    {
-        while (fin >> i)//æž„å»ºå›¾çŸ©é˜µ
-        {
-            fin >> j;
-            fin >> w;
-            Save_v[i][j] = w;
-            Save_v[j][i] = w;
-        }
-    }
-    cout << "æ‹“æ‰‘åˆ›å»ºæˆåŠŸ" << endl;
-    fin.close();
+
+	ifstream fin;
+
+	fin.open("data.txt");
+
+	int i, j, w;
+
+	if (fin.eof())
+
+	{
+
+		cout << "ÎÄ¼þ´ò¿ªÊ§°Ü" << endl;
+
+	}
+
+	else
+
+	{
+
+		while (fin >> i)//¹¹½¨Í¼¾ØÕó
+
+		{
+
+			fin >> j;
+
+			fin >> w;
+
+			Save_v[i][j] = w;
+
+			Save_v[j][i] = w;
+
+		}
+
+	}
+
+	cout << "ÍØÆË´´½¨³É¹¦" << endl;
+
+	fin.close();
+
 };
+
 int Graph::Get(int i, int j)
+
 {
-    return Save_v[i][j];
+
+	return Save_v[i][j];
+
 };

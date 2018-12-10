@@ -1,44 +1,87 @@
 #include "List.h"
+
 #include <string.h>
+
 List::List()
+
 {
-    Name = -1;
-    memset(Distance, 0, Vertex);
-    memset(Next_Jump, 0, Vertex);
-    pre = NULL;
-    next = NULL;
+
+	Name = -1;
+
+	memset(Distance, 0, Vertex);
+
+	memset(Next_Jump, 0, Vertex);
+
+	pre = NULL;
+
+	next = NULL;
+
 };
-List::~List(){
+
+List::~List() {
+
 };
-void List::Refresh(int des, int dist, int next) //èµ‹å€¼å‡½æ•°
+
+void List::Refresh(int des, int dist, int next) //¸³Öµº¯Êý
+
 {
-    Distance[des] = dist;
-    Next_Jump[des] = next;
+
+	Distance[des] = dist;
+
+	Next_Jump[des] = next;
+
 };
+
 void List::Originate()
+
 {
-    memset(Distance, 0, sizeof(int) * Vertex);
-    memset(Next_Jump, 0, sizeof(int) * Vertex);
+
+	memset(Distance, 0, sizeof(int) * Vertex);
+
+	memset(Next_Jump, 0, sizeof(int) * Vertex);
+
 };
+
 void List::Print(int v_num)
+
 {
-    for (int vert = 0; vert < Vertex; vert++)
-    {
-        if (Distance[vert] != 0 && Next_Jump[vert] != 0) //å½“å‰è·¯å¾„æ˜¯å¦å­˜åœ¨
-        {
-            cout << "   |  " << vert << ".x.x.x    ";
-            if (Next_Jump[vert] == -1)
-            {
-                cout
-                    << "|  ç›´æŽ¥äº¤ä»˜  |   " << Distance[vert] << "  |" << endl; // è·ç¦»
-                cout << "---------------------------------------------------" << endl;
-            }
-            else
-            {
-                cout << "|  " << Next_Jump[vert] << ".x.x.x   |   " << Distance[vert] << "  |" << endl; // è·ç¦»
-                cout << "---------------------------------------------------" << endl;
-            }
-            v_num--;
-        }
-    }
+
+	for (int vert = 0; vert < Vertex; vert++)
+
+	{
+
+		if (Distance[vert] != 0 && Next_Jump[vert] != 0) //µ±Ç°Â·¾¶ÊÇ·ñ´æÔÚ
+
+		{
+
+			cout << "   |  " << vert << ".x.x.x    ";
+
+			if (Next_Jump[vert] == -1)
+
+			{
+
+				cout
+
+					<< "|  Ö±½Ó½»¸¶  |   " << Distance[vert] << "  |" << endl; // ¾àÀë
+
+				cout << "---------------------------------------------------" << endl;
+
+			}
+
+			else
+
+			{
+
+				cout << "|  " << Next_Jump[vert] << ".x.x.x   |   " << Distance[vert] << "  |" << endl; // ¾àÀë
+
+				cout << "---------------------------------------------------" << endl;
+
+			}
+
+			v_num--;
+
+		}
+
+	}
+
 }

@@ -1,149 +1,299 @@
 #include "Gedge.h"
+
 void Graph::Insert_edge()
+
 {
+
 	ofstream app;
+
 	app.open("data.txt", ofstream::app);
+
 	if (!app)
+
 	{
-		cout << "æ‰“å¼€æ–‡ä»¶å¤±è´¥";
+
+		cout << "´ò¿ªÎÄ¼şÊ§°Ü";
+
 		return;
+
 	}
+
 	int i, j, k;
-	cout << "è¯·è¾“å…¥éœ€è¦æ·»åŠ çš„è·¯ç”±å™¨ï¼š";
+
+	cout << "ÇëÊäÈëĞèÒªÌí¼ÓµÄÂ·ÓÉÆ÷£º";
+
 	cin >> i;
+
 	if (Vertex_Verify(i))
+
 	{
-		cout << "è¯·è¾“å…¥å¦å¤–ä¸€ä¸ªè·¯ç”±å™¨ï¼š";
+
+		cout << "ÇëÊäÈëÁíÍâÒ»¸öÂ·ÓÉÆ÷£º";
+
 		cin >> j;
+
 		if (i == j)
+
 		{
-			cout << "å¼€å§‹è·¯ç”±å™¨ä¸ç›®çš„è·¯ç”±å™¨ä¸ºåŒä¸€ä¸ªèŠ‚ç‚¹ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
+
+			cout << "¿ªÊ¼Â·ÓÉÆ÷ÓëÄ¿µÄÂ·ÓÉÆ÷ÎªÍ¬Ò»¸ö½Úµã£¬ÇëÖØĞÂÊäÈë" << endl;
+
 			return;
+
 		}
+
 		else
+
 		{
+
 			if (Vertex_Verify(j))
+
 			{
+
 				if (Save_v[i][j] == infinite)
+
 				{
-					cout << "è¯·è¾“å…¥ä¸¤ä¸ªç»“ç‚¹ä¹‹é—´çš„è·ç¦»ï¼š";
+
+					cout << "ÇëÊäÈëÁ½¸ö½áµãÖ®¼äµÄ¾àÀë£º";
+
 					cin >> k;
+
 					Save_v[i][j] = k;
+
 					Save_v[j][i] = k;
-					app << i;
-					app << " ";
-					app << j;
-					app << " ";
-					app << k;
+
 					app << endl;
-					cout << "æ’å…¥æˆåŠŸ"<<endl;
+
+					app << i;
+
+					app << " ";
+
+					app << j;
+
+					app << " ";
+
+					app << k;
+
+					app << endl;
+
+					cout << "²åÈë³É¹¦" << endl;
+
 					Refresh_List();
+
 					return;
+
 				}
+
 				else
+
 				{
-					cout << "è¾“å…¥çš„ä¿¡æ¯å·²å­˜åœ¨ï¼Œè¾“å…¥å¤±è´¥ï¼Œè¯·é‡æ–°æ“ä½œ";
+
+					cout << "ÊäÈëµÄĞÅÏ¢ÒÑ´æÔÚ£¬ÊäÈëÊ§°Ü£¬ÇëÖØĞÂ²Ù×÷";
+
 				}
+
 			}
+
 			else
+
 			{
+
 				int judge = 0;
-				cout << "è¯¥èŠ‚ç‚¹ä¸å­˜åœ¨ï¼Œæ˜¯å¦è¦æ’å…¥æ–°èŠ‚ç‚¹ï¼Ÿè¾“å…¥1æ’å…¥æ–°èŠ‚ç‚¹" << endl;
+
+				cout << "¸Ã½Úµã²»´æÔÚ£¬ÊÇ·ñÒª²åÈëĞÂ½Úµã£¿ÊäÈë1²åÈëĞÂ½Úµã" << endl;
+
 				cin >> judge;
+
 				if (judge == 1)
+
 				{
+
 					Insert_vertex(j);
+
 				}
+
 				else
+
 				{
+
 					return;
+
 				}
+
 			}
+
 		}
+
 	}
+
 	else
+
 	{
+
 		int judge = 0;
-		cout << "è¯¥èŠ‚ç‚¹ä¸å­˜åœ¨ï¼Œæ˜¯å¦è¦æ’å…¥æ–°èŠ‚ç‚¹ï¼Ÿè¾“å…¥1æ’å…¥æ–°èŠ‚ç‚¹" << endl;
+
+		cout << "¸Ã½Úµã²»´æÔÚ£¬ÊÇ·ñÒª²åÈëĞÂ½Úµã£¿ÊäÈë1²åÈëĞÂ½Úµã" << endl;
+
 		cin >> judge;
+
 		if (judge == 1)
+
 		{
+
 			Insert_vertex(i);
+
 		}
+
 		else
+
 		{
+
 			return;
+
 		}
+
 	}
+
 	app.close();
+
 }
 
+
+
 void Graph::Delete_edge()
+
 {
+
 	ifstream infile;
+
 	infile.open("data.txt");
+
 	int a[Vertex], b[Vertex], c[Vertex];
+
 	int x = 0;
+
 	int count = 0;
+
 	cout << "------------------------------" << endl;
-	cout << "å½“å‰å­˜åœ¨è·¯å¾„æœ‰:" << endl;
+
+	cout << "µ±Ç°´æÔÚÂ·¾¶ÓĞ:" << endl;
+
 	cout << "------------------------------" << endl;
-	cout << "èµ·ç‚¹ \t"
-		 << "ç»ˆç‚¹" << endl;
+
+	cout << "Æğµã \t"
+
+		<< "ÖÕµã" << endl;
+
 	while (infile >> a[x])
+
 	{
+
 		cout << a[x] << "   <->   ";
+
 		infile >> b[x];
+
 		infile >> c[x];
+
 		cout << b[x] << " " << c[x] << endl;
+
 		x++;
+
 		count = x;
+
 	}
+
 	cout << "------------------------------" << endl;
+
 	infile.close();
+
 	int start, end;
-	cout << "è¾“å…¥ä½ æƒ³åˆ é™¤çš„è·¯å¾„çš„èµ·å§‹é¡¶ç‚¹ï¼š";
+
+	cout << "ÊäÈëÄãÏëÉ¾³ıµÄÂ·¾¶µÄÆğÊ¼¶¥µã£º";
+
 	cin >> start;
-	cout << "è¾“å…¥ä½ æƒ³åˆ é™¤çš„è·¯å¾„çš„ç»ˆæ­¢é¡¶ç‚¹ï¼š";
+
+	cout << "ÊäÈëÄãÏëÉ¾³ıµÄÂ·¾¶µÄÖÕÖ¹¶¥µã£º";
+
 	cin >> end;
+
 	int f = 0;
+
 	if (start != end && Save_v[start][end] != infinite)
+
 	{
+
 		while (f < count)
+
 		{
+
 			if (a[f] == start && b[f] == end)
+
 			{
+
 				c[f] = infinite;
+
 				Save_v[start][end] = infinite;
+
 				Save_v[end][start] = infinite;
+
 				break;
+
 			}
+
 			if (a[f] == end && b[f] == start)
+
 			{
+
 				c[f] = infinite;
+
 				Save_v[start][end] = infinite;
+
 				Save_v[end][start] = infinite;
+
 				break;
+
 			}
+
 			f++;
+
 		}
+
 		ofstream outfile;
+
 		outfile.open("data.txt", ios::out);
+
 		for (f = 0; f < count; f++)
+
 		{
+
 			if (c[f] != 0 && c[f] != infinite)
+
 			{
+
 				outfile << a[f] << " ";
+
 				outfile << b[f] << " ";
+
 				outfile << c[f] << endl;
+
 			}
+
 		}
+
 		outfile.close();
+
 		Refresh_List();
-		cout << "åˆ é™¤æˆåŠŸ" << endl;
+
+		cout << "É¾³ı³É¹¦" << endl;
+
 	}
+
 	else
+
 	{
-		cout << "è¾“å…¥çš„è·¯å¾„ä¸å­˜åœ¨"<<endl;
+
+		cout << "ÊäÈëµÄÂ·¾¶²»´æÔÚ" << endl;
+
 	}
+
 }

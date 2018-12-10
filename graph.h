@@ -1,31 +1,61 @@
 #include <iostream>
+
 #include <fstream>
+
 #include "List.h"
+
 #include <string.h>
+
 using namespace std;
+
 #define infinite 10000000
+
 class Graph
+
 {
+
 public:
-  Graph();
-  ~Graph();
-  void Create_Graph();
-  void Create_List();
-  void Dijkstra(int v, List *node); //æœ€çŸ­è·¯å¾„
-  void List_Refresh(string list);   //æ›´æ–°è·¯ç”±è¡¨
-  void Insert_vertex(int k);        //æ’å…¥èŠ‚ç‚¹
-  void Delete_vertex(int k);        //åˆ é™¤èŠ‚ç‚¹
-  void Insert_edge();               //æ’å…¥è¾¹
-  void Delete_edge();               //åˆ é™¤è¾¹
-  void Dijkstra(int v);             //æœ€çŸ­è·¯å¾„
-  int Get(int i, int j);            //è·å¾—çŸ©é˜µä¸­å…ƒç´ çš„ä¿¡æ¯
-  bool Vertex_Verify(int i);        //èŠ‚ç‚¹æ˜¯å¦å­˜åœ¨
-  int Vertex_num();
-  void Refresh_List(); //é“¾è¡¨åˆ·æ–°
-  List *ergodic(List *node, int k);
-  List *head;
+
+	Graph();
+
+	~Graph();
+
+	void Create_Graph();
+
+	void Create_List();
+
+	void Dijkstra(int v, List *node); //×î¶ÌÂ·¾¶
+
+	void List_Refresh(string list);   //¸üĞÂÂ·ÓÉ±í
+
+	void Insert_vertex(int k);        //²åÈë½Úµã
+
+	void Delete_vertex(int k);        //É¾³ı½Úµã
+
+	void Insert_edge();               //²åÈë±ß
+
+	void Delete_edge();               //É¾³ı±ß
+
+	void Dijkstra(int v);             //×î¶ÌÂ·¾¶
+
+	int Get(int i, int j);            //»ñµÃ¾ØÕóÖĞÔªËØµÄĞÅÏ¢
+
+	bool Vertex_Verify(int i);        //½ÚµãÊÇ·ñ´æÔÚ
+
+	int Vertex_num();
+
+	void Refresh_List(); //Á´±íË¢ĞÂ
+
+	List *ergodic(List *node, int k);
+
+	List *head;
+
+
 
 private:
-  int Save_v[Vertex][Vertex];
-  int vertex;
+
+	int Save_v[Vertex][Vertex];
+
+	int vertex;
+
 };

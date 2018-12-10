@@ -1,154 +1,307 @@
 #include "graph.h"
+
 #include <iostream>
+
 using namespace std;
+
 Graph graph1;
+
 int main()
+
 {
-    char Option = '0';
-    while (Option != 'q')
-    {
-        cout << "---------------------------------------------------" << endl;
-        cout << "è¯·è¾“å…¥è¦è¿›è¡Œçš„æ“ä½œ" << endl;
-        cout << "[1]åˆ›å»ºæ‹“æ‰‘" << endl;
-        cout << "[2]æŸ¥çœ‹è·¯ç”±è¡¨" << endl;
-        cout << "[3]è¾¹æ“ä½œ" << endl;
-        cout << "[4]èŠ‚ç‚¹æ“ä½œ" << endl;
-        cout << "[q]é€€å‡ºç¨‹åº" << endl;
-        cout << "---------------------------------------------------" << endl;
-        cin >> Option;
-        switch (Option)
-        {
-        case '1':
-        {
-            graph1.Create_Graph();
-            graph1.Create_List();
-            Option = '0';
-            break;
-        }
-        case '2':
-        {
-            cout << "è¯·è¾“å…¥æ‚¨è¦æŸ¥çœ‹è·¯ç”±è¡¨çš„è·¯ç”±å™¨ï¼š";
-            int i = 0;
-            cin >> i;
-            cout << endl;
-            List *temp = graph1.head;
-            temp = graph1.ergodic(temp, i);
-            int n = graph1.Vertex_num();
-            int j = 0;
-            if (temp)
-            {
-                cout << "|ç›®çš„ä¸»æœºæ‰€åœ¨çš„ç½‘ç»œ|\t"
-                     << "| ä¸‹ä¸€è·³åœ°å€ |\t"
-                     << "|è·ç¦»|" << endl; //è·³æ•° è·ç¦»
-                cout << "---------------------------------------------------" << endl;
-                 temp->Print(i);
-            }
-            Option = '0';
-            break;
-        }
-        case '3':
-        {
-            char Operand = '0';
-            while (Operand != 'q')
-            {
-                cout << "---------------------------------------------------" << endl;
-                cout << "è¯·è¾“å…¥æ‚¨è¦è¿›è¡Œçš„æ“ä½œ" << endl;
-                cout << "[1]æ’å…¥è¾¹" << endl;
-                cout << "[2]åˆ é™¤è¾¹" << endl;
-                cout << "[q]è¿”å›žä¸Šä¸€çº§" << endl;
-                cout << "---------------------------------------------------" << endl;
-                cin >> Operand;
-                switch (Operand)
-                {
 
-                case '1':
-                {
-                    graph1.Insert_edge();
-                    Operand ='0';
-                    break;
-                }
-                case '2':
-                {
-                    graph1.Delete_edge();
-                    Operand = '0';
-                    break;
-                }
-                case 'q':
-                {
-                    break;
-                }
-                default:
-                {
-                    cout << "è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
-                    Operand = '0';
-                    break;
-                }
-                }
-            }
-            Option = '0';
-            break;
-        }
-        case '4':
-        {
-            char Operand='0';
-            while (Operand != 'q')
-            {
-                cout << "---------------------------------------------------" << endl;
-                cout << "è¯·è¾“å…¥æ‚¨è¦è¿›è¡Œçš„æ“ä½œ" << endl;
-                cout << "[1]æ–°å¢žè·¯ç”±å™¨" << endl;
-                cout << "[2]åˆ é™¤è·¯ç”±å™¨" << endl;
-                cout << "[q]è¿”å›žä¸Šä¸€çº§" << endl;
-                cout << "---------------------------------------------------" << endl;
+	char Option = '0';
 
-                cin >> Operand;
-                switch (Operand)
-                {
-                    {
-                    case '1':
-                    {
-                        cout << "è¯·è¾“å…¥è¦æ’å…¥çš„è·¯ç”±å™¨" << endl;
-                        int Ivertex;
-                        cin >> Ivertex;
-                        graph1.Insert_vertex(Ivertex);
-                        Operand = '0';
-                        break;
-                    }
-                    case '2':
-                    {
-                        cout << "è¯·è¾“å…¥è¦åˆ é™¤çš„è·¯ç”±å™¨" << endl;
-                        int Dvertex;
-                        cin >> Dvertex;
-                        graph1.Delete_vertex(Dvertex);
-                        Operand = '0';
-                        break;
-                    }
-                    case 'q':
-                    {
-                        break;
-                    }
-                    default:
-                    {
-                        Operand = '0';
-                        cout << "è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
-                        break;
-                    }
-                    }
-                }
-            }
-            Option = '0';
-            break;
-        }
-        case 'q':
-        {
-            return '0';
-        }
-        default:
-        {
-            cout << "è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
-            Option = '0';
-            break;
-        }
-        }
-    }
-    return 0;
+	while (Option != 'q')
+
+	{
+
+		cout << "---------------------------------------------------" << endl;
+
+		cout << "ÇëÊäÈëÒª½øÐÐµÄ²Ù×÷" << endl;
+
+		cout << "[1]´´½¨ÍØÆË" << endl;
+
+		cout << "[2]²é¿´Â·ÓÉ±í" << endl;
+
+		cout << "[3]±ß²Ù×÷" << endl;
+
+		cout << "[4]½Úµã²Ù×÷" << endl;
+
+		cout << "[q]ÍË³ö³ÌÐò" << endl;
+
+		cout << "---------------------------------------------------" << endl;
+
+		cin >> Option;
+
+		switch (Option)
+
+		{
+
+		case '1':
+
+		{
+
+			graph1.Create_Graph();
+
+			graph1.Create_List();
+
+			Option = '0';
+
+			break;
+
+		}
+
+		case '2':
+
+		{
+
+			cout << "ÇëÊäÈëÄúÒª²é¿´Â·ÓÉ±íµÄÂ·ÓÉÆ÷£º";
+
+			int i = 0;
+
+			cin >> i;
+
+			cout << endl;
+
+			List *temp = graph1.head;
+
+			temp = graph1.ergodic(temp, i);
+
+			int n = graph1.Vertex_num();
+
+			int j = 0;
+
+			if (temp)
+
+			{
+
+				cout << "|Ä¿µÄÖ÷»úËùÔÚµÄÍøÂç|\t"
+
+					<< "| ÏÂÒ»ÌøµØÖ· |\t"
+
+					<< "|¾àÀë|" << endl; //ÌøÊý ¾àÀë
+
+				cout << "---------------------------------------------------" << endl;
+
+				temp->Print(i);
+
+			}
+
+			Option = '0';
+
+			break;
+
+		}
+
+		case '3':
+
+		{
+
+			char Operand = '0';
+
+			while (Operand != 'q')
+
+			{
+
+				cout << "---------------------------------------------------" << endl;
+
+				cout << "ÇëÊäÈëÄúÒª½øÐÐµÄ²Ù×÷" << endl;
+
+				cout << "[1]²åÈë±ß" << endl;
+
+				cout << "[2]É¾³ý±ß" << endl;
+
+				cout << "[q]·µ»ØÉÏÒ»¼¶" << endl;
+
+				cout << "---------------------------------------------------" << endl;
+
+				cin >> Operand;
+
+				switch (Operand)
+
+				{
+
+
+
+				case '1':
+
+				{
+
+					graph1.Insert_edge();
+
+					Operand = '0';
+
+					break;
+
+				}
+
+				case '2':
+
+				{
+
+					graph1.Delete_edge();
+
+					Operand = '0';
+
+					break;
+
+				}
+
+				case 'q':
+
+				{
+
+					break;
+
+				}
+
+				default:
+
+				{
+
+					cout << "ÊäÈëÓÐÎó£¬ÇëÖØÐÂÊäÈë" << endl;
+
+					Operand = '0';
+
+					break;
+
+				}
+
+				}
+
+			}
+
+			Option = '0';
+
+			break;
+
+		}
+
+		case '4':
+
+		{
+
+			char Operand = '0';
+
+			while (Operand != 'q')
+
+			{
+
+				cout << "---------------------------------------------------" << endl;
+
+				cout << "ÇëÊäÈëÄúÒª½øÐÐµÄ²Ù×÷" << endl;
+
+				cout << "[1]ÐÂÔöÂ·ÓÉÆ÷" << endl;
+
+				cout << "[2]É¾³ýÂ·ÓÉÆ÷" << endl;
+
+				cout << "[q]·µ»ØÉÏÒ»¼¶" << endl;
+
+				cout << "---------------------------------------------------" << endl;
+
+
+
+				cin >> Operand;
+
+				switch (Operand)
+
+				{
+
+					{
+
+				case '1':
+
+				{
+
+					cout << "ÇëÊäÈëÒª²åÈëµÄÂ·ÓÉÆ÷" << endl;
+
+					int Ivertex;
+
+					cin >> Ivertex;
+
+					graph1.Insert_vertex(Ivertex);
+
+					Operand = '0';
+
+					break;
+
+				}
+
+				case '2':
+
+				{
+
+					cout << "ÇëÊäÈëÒªÉ¾³ýµÄÂ·ÓÉÆ÷" << endl;
+
+					int Dvertex;
+
+					cin >> Dvertex;
+
+					graph1.Delete_vertex(Dvertex);
+
+					Operand = '0';
+
+					break;
+
+				}
+
+				case 'q':
+
+				{
+
+					break;
+
+				}
+
+				default:
+
+				{
+
+					Operand = '0';
+
+					cout << "ÊäÈëÓÐÎó£¬ÇëÖØÐÂÊäÈë" << endl;
+
+					break;
+
+				}
+
+					}
+
+				}
+
+			}
+
+			Option = '0';
+
+			break;
+
+		}
+
+		case 'q':
+
+		{
+
+			return '0';
+
+		}
+
+		default:
+
+		{
+
+			cout << "ÊäÈëÓÐÎó£¬ÇëÖØÐÂÊäÈë" << endl;
+
+			Option = '0';
+
+			break;
+
+		}
+
+		}
+
+	}
+
+	return 0;
+
 }
