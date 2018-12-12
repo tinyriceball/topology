@@ -42,7 +42,7 @@ void Graph::Insert_edge()
 				}
 				else
 				{
-					cout << "输入的信息已存在，输入失败，请重新操作";
+					cout << "输入的信息已存在，输入失败，请重新操作"<<endl;
 				}
 			}
 			else

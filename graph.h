@@ -27,5 +27,4 @@ public:
 
 private:
   int Save_v[Vertex][Vertex];
-  int vertex;
 };
