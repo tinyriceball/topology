@@ -1,4 +1,4 @@
-#ifndef LCREATE_H
-#define LCREATE_H
+#ifndef RCREATE_H
+#define RCREATE_H
 #include "graph.h"
 #endif

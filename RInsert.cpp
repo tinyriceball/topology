@@ -1,4 +1,4 @@
-#include "LInsert.h"
+#include "RInsert.h"
 
 void Router::instert_list(Router *head, int router)
 {
