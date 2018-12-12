@@ -1,17 +1,17 @@
 #include "Refresh.h"
-void Graph::Refresh_List()
+void Graph::refresh_list()
 {
     List *cur = NULL;
     cur = head;
     do
     {
         cur = cur->next;
-        if (Vertex_Verify(cur->Name)==true)
+        if (vertex_verify(cur->Name)==true)
         {
-            Dijkstra(cur->Name, cur); //调用最短路径算法
+            dijkstra(cur->Name, cur); //调用最短路径算法
         }else{
             cur->Name=-1;
-            cur->Originate();
+            cur->originate();
         }
     } while (cur->next);
 }

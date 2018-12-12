@@ -7,36 +7,35 @@ Graph::Graph()
         {
             if (i == j)
             {
-                Save_v[i][j] = 0;
+                matrix[i][j] = 0;
             }
             else
             {
-                Save_v[i][j] = infinite; //两点之间无限远
+                matrix[i][j] = infinite; //两点之间无限远
             }
         }
     }
     head = new List;
-    vertex = 0;
 };
 
 Graph::~Graph(){};
-bool Graph::Vertex_Verify(int i)
+bool Graph::vertex_verify(int i)
 {
     for (int a = 1; a < Vertex; a++)
     {
-        if (i != a && Save_v[i][a] != infinite)
+        if (i != a && matrix[i][a] != infinite)
         {
             return true;
         }
     }
     return false;
 };
-int Graph::Vertex_num()
+int Graph::vertex_num()
 {
     int num = 0;
     for (int a = 1; a < Vertex; a++)
     {
-        if (Vertex_Verify(a))
+        if (vertex_verify(a))
         {
             num++;
         }

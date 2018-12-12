@@ -1,5 +1,5 @@
 #include "Gvertex.h"
-void Graph::Insert_vertex(int k)
+void Graph::insert_vertex(int k)
 {
 	if (k < 1 || k > Vertex)
 	{
@@ -13,18 +13,18 @@ void Graph::Insert_vertex(int k)
 		int end = 0, dist = 0;
 		cout << "请输入与该路由器有关的另一个路由器" << endl;
 		cin >> end;
-		if (Vertex_Verify(end))
+		if (vertex_verify(end))
 		{
 			cout << "请输入该边的长度" << endl;
 			cin >> dist;
 			if (dist > 0 && dist < infinite)
 			{
 				fout << k << " " << end << " " << dist << endl;
-				Save_v[k][end] = dist;
-				Save_v[end][k] = dist;
+				matrix[k][end] = dist;
+				matrix[end][k] = dist;
 				fout.close();
-				head->Instert(head, k);
-				Refresh_List();
+				head->instert_list(head, k);
+				refresh_list();
 				cout << "插入成功"<<endl;
 				return;
 			}
@@ -42,7 +42,7 @@ void Graph::Insert_vertex(int k)
 	}
 }
 
-void Graph::Delete_vertex(int k)
+void Graph::delete_vertex(int k)
 {
 	List *temp = head;
 	temp = ergodic(head, k);
@@ -77,8 +77,8 @@ dele:
 	{
 		if (a != k)
 		{
-			Save_v[k][a] = infinite;
-			Save_v[a][k] = infinite;
+			matrix[k][a] = infinite;
+			matrix[a][k] = infinite;
 		}
 	}
 
@@ -86,7 +86,7 @@ dele:
 	{
 		delete (temp);
 		temp=NULL;
-		Refresh_List();
+		refresh_list();
 	}
 	else
 	{
@@ -94,7 +94,7 @@ dele:
 		temp->next->pre = temp->pre;
 		delete (temp);
 		temp = NULL;
-		Refresh_List();
+		refresh_list();
 	}
 	cout << "删除成功" << endl;
 	return;

@@ -1,6 +1,6 @@
 #include "LInsert.h"
 
-void List::Instert(List *head, int router)
+void List::instert_list(List *head, int router)
 {
 	List *a = NULL;
 	List *b = NULL;

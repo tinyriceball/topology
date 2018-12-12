@@ -4,8 +4,8 @@ using namespace std;
 Graph graph1;
 int main()
 {
-    char Option = '0';
-    while (Option != 'q')
+    char option = '0';
+    while (option != 'q')
     {
         cout << "---------------------------------------------------" << endl;
         cout << "请输入要进行的操作" << endl;
@@ -15,14 +15,14 @@ int main()
         cout << "[4]节点操作" << endl;
         cout << "[q]退出程序" << endl;
         cout << "---------------------------------------------------" << endl;
-        cin >> Option;
-        switch (Option)
+        cin >> option;
+        switch (option)
         {
         case '1':
         {
-            graph1.Create_Graph();
-            graph1.Create_List();
-            Option = '0';
+            graph1.create_graph();
+            graph1.create_list();
+            option = '0';
             break;
         }
         case '2':
@@ -33,7 +33,7 @@ int main()
             cout << endl;
             List *temp = graph1.head;
             temp = graph1.ergodic(temp, i);
-            int n = graph1.Vertex_num();
+            int n = graph1.vertex_num();
             int j = 0;
             if (temp)
             {
@@ -41,15 +41,15 @@ int main()
                      << "| 下一跳地址 |\t"
                      << "|距离|" << endl; //跳数 距离
                 cout << "---------------------------------------------------" << endl;
-                 temp->Print(i);
+                 temp->print(i);
             }
-            Option = '0';
+            option = '0';
             break;
         }
         case '3':
         {
-            char Operand = '0';
-            while (Operand != 'q')
+            char operand = '0';
+            while (operand != 'q')
             {
                 cout << "---------------------------------------------------" << endl;
                 cout << "请输入您要进行的操作" << endl;
@@ -57,20 +57,20 @@ int main()
                 cout << "[2]删除边" << endl;
                 cout << "[q]返回上一级" << endl;
                 cout << "---------------------------------------------------" << endl;
-                cin >> Operand;
-                switch (Operand)
+                cin >> operand;
+                switch (operand)
                 {
 
                 case '1':
                 {
-                    graph1.Insert_edge();
-                    Operand ='0';
+                    graph1.insert_edge();
+                    operand ='0';
                     break;
                 }
                 case '2':
                 {
-                    graph1.Delete_edge();
-                    Operand = '0';
+                    graph1.delete_edge();
+                    operand = '0';
                     break;
                 }
                 case 'q':
@@ -80,18 +80,18 @@ int main()
                 default:
                 {
                     cout << "输入有误，请重新输入" << endl;
-                    Operand = '0';
+                    operand = '0';
                     break;
                 }
                 }
             }
-            Option = '0';
+            option = '0';
             break;
         }
         case '4':
         {
-            char Operand='0';
-            while (Operand != 'q')
+            char operand='0';
+            while (operand != 'q')
             {
                 cout << "---------------------------------------------------" << endl;
                 cout << "请输入您要进行的操作" << endl;
@@ -100,8 +100,8 @@ int main()
                 cout << "[q]返回上一级" << endl;
                 cout << "---------------------------------------------------" << endl;
 
-                cin >> Operand;
-                switch (Operand)
+                cin >> operand;
+                switch (operand)
                 {
                     {
                     case '1':
@@ -109,17 +109,17 @@ int main()
                         cout << "请输入要插入的路由器" << endl;
                         int Ivertex;
                         cin >> Ivertex;
-                        graph1.Insert_vertex(Ivertex);
-                        Operand = '0';
+                        graph1.insert_vertex(Ivertex);
+                        operand = '0';
                         break;
                     }
                     case '2':
                     {
                         cout << "请输入要删除的路由器" << endl;
-                        int Dvertex;
-                        cin >> Dvertex;
-                        graph1.Delete_vertex(Dvertex);
-                        Operand = '0';
+                        int dvertex;
+                        cin >> dvertex;
+                        graph1.delete_vertex(dvertex);
+                        operand = '0';
                         break;
                     }
                     case 'q':
@@ -128,14 +128,14 @@ int main()
                     }
                     default:
                     {
-                        Operand = '0';
+                        operand = '0';
                         cout << "输入有误，请重新输入" << endl;
                         break;
                     }
                     }
                 }
             }
-            Option = '0';
+            option = '0';
             break;
         }
         case 'q':
@@ -145,7 +145,7 @@ int main()
         default:
         {
             cout << "输入有误，请重新输入" << endl;
-            Option = '0';
+            option = '0';
             break;
         }
         }

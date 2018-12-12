@@ -1,5 +1,5 @@
 #include "Gedge.h"
-void Graph::Insert_edge()
+void Graph::insert_edge()
 {
 	ofstream app;
 	app.open("data.txt", ofstream::app);
@@ -11,7 +11,7 @@ void Graph::Insert_edge()
 	int i, j, k;
 	cout << "请输入需要添加的路由器：";
 	cin >> i;
-	if (Vertex_Verify(i))
+	if (vertex_verify(i))
 	{
 		cout << "请输入另外一个路由器：";
 		cin >> j;
@@ -22,14 +22,14 @@ void Graph::Insert_edge()
 		}
 		else
 		{
-			if (Vertex_Verify(j))
+			if (vertex_verify(j))
 			{
-				if (Save_v[i][j] == infinite)
+				if (matrix[i][j] == infinite)
 				{
 					cout << "请输入两个结点之间的距离：";
 					cin >> k;
-					Save_v[i][j] = k;
-					Save_v[j][i] = k;
+					matrix[i][j] = k;
+					matrix[j][i] = k;
 					app << i;
 					app << " ";
 					app << j;
@@ -37,7 +37,7 @@ void Graph::Insert_edge()
 					app << k;
 					app << endl;
 					cout << "插入成功"<<endl;
-					Refresh_List();
+					refresh_list();
 					return;
 				}
 				else
@@ -52,7 +52,7 @@ void Graph::Insert_edge()
 				cin >> judge;
 				if (judge == 1)
 				{
-					Insert_vertex(j);
+					insert_vertex(j);
 				}
 				else
 				{
@@ -68,7 +68,7 @@ void Graph::Insert_edge()
 		cin >> judge;
 		if (judge == 1)
 		{
-			Insert_vertex(i);
+			insert_vertex(i);
 		}
 		else
 		{
@@ -78,7 +78,7 @@ void Graph::Insert_edge()
 	app.close();
 }
 
-void Graph::Delete_edge()
+void Graph::delete_edge()
 {
 	ifstream infile;
 	infile.open("data.txt");
@@ -107,22 +107,22 @@ void Graph::Delete_edge()
 	cout << "输入你想删除的路径的终止顶点：";
 	cin >> end;
 	int f = 0;
-	if (start != end && Save_v[start][end] != infinite)
+	if (start != end && matrix[start][end] != infinite)
 	{
 		while (f < count)
 		{
 			if (a[f] == start && b[f] == end)
 			{
 				c[f] = infinite;
-				Save_v[start][end] = infinite;
-				Save_v[end][start] = infinite;
+				matrix[start][end] = infinite;
+				matrix[end][start] = infinite;
 				break;
 			}
 			if (a[f] == end && b[f] == start)
 			{
 				c[f] = infinite;
-				Save_v[start][end] = infinite;
-				Save_v[end][start] = infinite;
+				matrix[start][end] = infinite;
+				matrix[end][start] = infinite;
 				break;
 			}
 			f++;
@@ -139,7 +139,7 @@ void Graph::Delete_edge()
 			}
 		}
 		outfile.close();
-		Refresh_List();
+		refresh_list();
 		cout << "删除成功" << endl;
 	}
 	else

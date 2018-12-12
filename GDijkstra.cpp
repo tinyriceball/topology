@@ -1,8 +1,8 @@
 #include "GDijkstra.h"
-void Graph::Dijkstra(int router, List *temp)
+void Graph::dijkstra(int router, List *temp)
 {
    
-    temp->Originate();
+    temp->originate();
     int dist[Vertex];
     int i, des;
     int path[Vertex];
@@ -10,7 +10,7 @@ void Graph::Dijkstra(int router, List *temp)
     memset(path, 9999999, sizeof(int) * Vertex);
     for (i = 0; i < Vertex; i++)
     {
-        dist[i] = Save_v[router][i];
+        dist[i] = matrix[router][i];
         if (dist[i] != infinite)
         {
             path[i] = i;
@@ -41,14 +41,14 @@ void Graph::Dijkstra(int router, List *temp)
         // }
         // else
         //  {
-        temp->Refresh(des, dist[des], path[des]);
+        temp->refresh(des, dist[des], path[des]);
         // }
         s[num++] = des;
         for (i = 0; i < Vertex; i++)
         {
-            if (dist[i] > dist[des] + Save_v[des][i])
+            if (dist[i] > dist[des] + matrix[des][i])
             {
-                dist[i] = dist[des] + Save_v[des][i];
+                dist[i] = dist[des] + matrix[des][i];
                 path[i] = path[des];
             }
         }
@@ -56,6 +56,6 @@ void Graph::Dijkstra(int router, List *temp)
     }
     if (router != 0)
     {
-        temp->Refresh(router, 0, router);
+        temp->refresh(router, 0, router);
     }
 };

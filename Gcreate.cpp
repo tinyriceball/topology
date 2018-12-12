@@ -1,5 +1,5 @@
 #include "Gcreate.h"
-void Graph::Create_Graph()
+void Graph::create_graph()
 {
     ifstream fin;
     fin.open("data.txt");
@@ -14,14 +14,14 @@ void Graph::Create_Graph()
         {
             fin >> j;
             fin >> w;
-            Save_v[i][j] = w;
-            Save_v[j][i] = w;
+            matrix[i][j] = w;
+            matrix[j][i] = w;
         }
     }
     cout << "拓扑创建成功" << endl;
     fin.close();
 };
-int Graph::Get(int i, int j)
+int Graph::get(int i, int j)
 {
-    return Save_v[i][j];
+    return matrix[i][j];
 };

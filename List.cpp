@@ -3,30 +3,30 @@
 List::List()
 {
     Name = -1;
-    memset(Distance, 0, Vertex);
-    memset(Next_Jump, 0, Vertex);
+    memset(distance, 0, Vertex);
+    memset(next_jump, 0, Vertex);
     pre = NULL;
     next = NULL;
 };
 List::~List(){};
-void List::Refresh(int des, int dist, int next) //赋值函数
+void List::refresh(int des, int dist, int next) //赋值函数
 {
-    Distance[des] = dist;
-    Next_Jump[des] = next;
+    distance[des] = dist;
+    next_jump[des] = next;
 };
-void List::Originate()
+void List::originate()
 {
-    memset(Distance, 9999999, sizeof(int) * Vertex);
-    memset(Next_Jump, 0, sizeof(int) * Vertex);
+    memset(distance, 9999999, sizeof(int) * Vertex);
+    memset(next_jump, 0, sizeof(int) * Vertex);
 };
-void List::Print(int v_num)
+void List::print(int v_num)
 {
     for (int vert = 1; vert < Vertex; vert++)
     {
-        if (Distance[vert] != 9999999 && Next_Jump[vert] != 0) //当前路径是否存在
+        if (distance[vert] != 9999999 && next_jump[vert] != 0) //当前路径是否存在
         {
             cout << "   |  " << vert << ".x.x.x        ";
-            if (Distance[vert] == 0)
+            if (distance[vert] == 0)
             {
                 cout
                     << "|  直接交付  |   " << 0 << "  |" << endl; // 距离
@@ -34,7 +34,7 @@ void List::Print(int v_num)
             }
             else
             {
-                cout << "|  " << Next_Jump[vert] << ".x.x.x      |   " << Distance[vert] << "  |" << endl; // 距离
+                cout << "|  " << next_jump[vert] << ".x.x.x      |   " << distance[vert] << "  |" << endl; // 距离
                 cout << "---------------------------------------------------" << endl;
             }
             v_num--;
