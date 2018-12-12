@@ -1,6 +1,6 @@
 #include "List.h"
 #include <string.h>
-List::List()
+Router::Router()
 {
     Name = -1;
     memset(distance, 0, Vertex);
@@ -8,18 +8,18 @@ List::List()
     pre = NULL;
     next = NULL;
 };
-List::~List(){};
-void List::refresh(int des, int dist, int next) //赋值函数
+Router::~Router(){};
+void Router::assign(int des, int dist, int next) //赋值函数
 {
     distance[des] = dist;
     next_jump[des] = next;
 };
-void List::originate()
+void Router::originate()
 {
     memset(distance, 9999999, sizeof(int) * Vertex);
     memset(next_jump, 0, sizeof(int) * Vertex);
 };
-void List::print(int v_num)
+void Router::print(int v_num)
 {
     for (int vert = 1; vert < Vertex; vert++)
     {

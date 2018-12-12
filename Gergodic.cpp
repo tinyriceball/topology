@@ -1,6 +1,7 @@
 #include"Gergodic.h"
 //遍历链表寻找查询的节点
-List * Graph::ergodic(List *h,int k) {
+Router *Graph::ergodic(Router *h, int k)
+{
 	while (1) {
 		if (k == h->Name) {
 			cout << "杨雯绚" << endl;

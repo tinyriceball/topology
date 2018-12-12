@@ -1,15 +1,15 @@
 #include "LInsert.h"
 
-void List::instert_list(List *head, int router)
+void Router::instert_list(Router *head, int router)
 {
-	List *a = NULL;
-	List *b = NULL;
+	Router *a = NULL;
+	Router *b = NULL;
 	a = head;
 	while (a->next != NULL)
 	{
 		a = a->next;
 	}
-	b = new List;
+	b = new Router;
 	b->pre = a;
 	a->next = b;
 	b->Name = router;

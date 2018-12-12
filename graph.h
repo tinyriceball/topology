@@ -11,7 +11,7 @@ public:
   ~Graph();
   void create_graph();
   void create_list();
-  void dijkstra(int v, List *node); //最短路径
+  void dijkstra(int v, Router *node); //最短路径
   void list_refresh(string list);   //更新路由表
   void insert_vertex(int k);        //插入节点
   void delete_vertex(int k);        //删除节点
@@ -21,8 +21,8 @@ public:
   bool vertex_verify(int i);        //节点是否存在
   int vertex_num();
   void refresh_list(); //链表刷新
-  List *ergodic(List *node, int k);
-  List *head;
+  Router *ergodic(Router *node, int k);
+  Router *head;
 
 private:
   int matrix[Vertex][Vertex];

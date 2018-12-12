@@ -4,18 +4,18 @@
 #include <iostream>
 using namespace std;
 #define MAX 100
-class List
+class Router
 {
 public:
   int Name;
-  List *pre;
-  List *next;
-  void refresh(int des, int dist, int next); //刷新当前链表的数据
-  void instert_list(List *head, int router);      //插入节点
+  Router *pre;
+  Router *next;
+  void assign(int des, int dist, int next); //刷新当前链表的数据
+  void instert_list(Router *head, int router); //插入节点
   void print(int v_num);                     //输出当前路由表
   void originate();
-  List();
-  ~List();
+  Router();
+  ~Router();
 
 private:
   int distance[MAX];  //最短距离

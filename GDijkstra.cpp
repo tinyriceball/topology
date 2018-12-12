@@ -1,5 +1,5 @@
 #include "GDijkstra.h"
-void Graph::dijkstra(int router, List *temp)
+void Graph::dijkstra(int router, Router *temp)
 {
    
     temp->originate();
@@ -36,13 +36,7 @@ void Graph::dijkstra(int router, List *temp)
                 min = dist[i];
             }
         }
-        // if (path[des] == router) //当下一跳等于目的地
-        // {
-        // }
-        // else
-        //  {
-        temp->refresh(des, dist[des], path[des]);
-        // }
+        temp->assign(des, dist[des], path[des]);
         s[num++] = des;
         for (i = 0; i < Vertex; i++)
         {
@@ -56,6 +50,6 @@ void Graph::dijkstra(int router, List *temp)
     }
     if (router != 0)
     {
-        temp->refresh(router, 0, router);
+        temp->assign(router, 0, router);
     }
 };

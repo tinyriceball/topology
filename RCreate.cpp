@@ -1,14 +1,14 @@
 #include "LCreate.h"
 void Graph::create_list()
 {
-    List *temp = NULL;
-    List *cur = NULL;
+    Router *temp = NULL;
+    Router *cur = NULL;
     cur = head;
     int v_num = vertex_num(); //未操作节点数
     int router = 1;
     do
     {
-        cur->next = new List;
+        cur->next = new Router;
         temp = cur;
         cur = cur->next;
         cur->pre = temp; //链表前后节点连接操作
