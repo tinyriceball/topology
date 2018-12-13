@@ -6,8 +6,8 @@ void Graph::dijkstra(int router, Router *temp)
     int dist[Vertex];
     int i, des;
     int path[Vertex];
-    memset(dist, 9999999, sizeof(int) * Vertex);
-    memset(path, 9999999, sizeof(int) * Vertex);
+    memset(dist, infinite, sizeof(int) * Vertex);
+    memset(path, -1, sizeof(int) * Vertex);
     for (i = 0; i < Vertex; i++)
     {
         dist[i] = matrix[router][i];

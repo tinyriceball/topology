@@ -1,7 +1,7 @@
-#include "Refresh.h"
+#include "Grefresh.h"
 void Graph::refresh_list()
 {
-    List *cur = NULL;
+    Router *cur = NULL;
     cur = head;
     do
     {

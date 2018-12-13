@@ -44,7 +44,7 @@ void Graph::insert_vertex(int k)
 
 void Graph::delete_vertex(int k)
 {
-	List *temp = head;
+	Router *temp = head;
 	temp = ergodic(head, k);
 	temp->Name = -1;
 	fstream fin;

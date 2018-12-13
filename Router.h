@@ -3,6 +3,7 @@
 #define Vertex 30
 #include <iostream>
 using namespace std;
+#define infinite 10000000
 #define MAX 100
 class Router
 {

@@ -3,8 +3,8 @@
 Router::Router()
 {
     Name = -1;
-    memset(distance, 0, Vertex);
-    memset(next_jump, 0, Vertex);
+    memset(distance, infinite, Vertex);
+    memset(next_jump, -1, Vertex);
     pre = NULL;
     next = NULL;
 };
@@ -16,14 +16,14 @@ void Router::assign(int des, int dist, int next) //赋值函数
 };
 void Router::originate()
 {
-    memset(distance, 9999999, sizeof(int) * Vertex);
-    memset(next_jump, 0, sizeof(int) * Vertex);
+    memset(distance, infinite, sizeof(int) * Vertex);
+    memset(next_jump, -1, sizeof(int) * Vertex);
 };
 void Router::print(int v_num)
 {
     for (int vert = 1; vert < Vertex; vert++)
     {
-        if (distance[vert] != 9999999 && next_jump[vert] != 0) //当前路径是否存在
+        if (distance[vert] != infinite && next_jump[vert] != -1) //当前路径是否存在
         {
             cout << "   |  " << vert << ".x.x.x        ";
             if (distance[vert] == 0)

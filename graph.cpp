@@ -15,7 +15,7 @@ Graph::Graph()
             }
         }
     }
-    head = new List;
+    head = new Router;
 };
 
 Graph::~Graph(){};

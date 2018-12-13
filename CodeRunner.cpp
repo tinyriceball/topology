@@ -10,9 +10,9 @@ int main()
         cout << "---------------------------------------------------" << endl;
         cout << "请输入要进行的操作" << endl;
         cout << "[1]创建拓扑" << endl;
-        cout << "[2]查看路由表" << endl;
-        cout << "[3]边操作" << endl;
-        cout << "[4]节点操作" << endl;
+        cout << "[2]查看指定路由器的路由表" << endl;
+        cout << "[3]链路增删操作" << endl;
+        cout << "[4]路由器增删操作" << endl;
         cout << "[q]退出程序" << endl;
         cout << "---------------------------------------------------" << endl;
         cin >> option;
@@ -31,7 +31,7 @@ int main()
             int i = 0;
             cin >> i;
             cout << endl;
-            List *temp = graph1.head;
+            Router *temp = graph1.head;
             temp = graph1.ergodic(temp, i);
             int n = graph1.vertex_num();
             int j = 0;
@@ -53,8 +53,8 @@ int main()
             {
                 cout << "---------------------------------------------------" << endl;
                 cout << "请输入您要进行的操作" << endl;
-                cout << "[1]插入边" << endl;
-                cout << "[2]删除边" << endl;
+                cout << "[1]插入链路" << endl;
+                cout << "[2]删除链路" << endl;
                 cout << "[q]返回上一级" << endl;
                 cout << "---------------------------------------------------" << endl;
                 cin >> operand;
